@@ -1,0 +1,9 @@
+counter_command contain adress next instruction
+
+cpu read command to adress
+
+counter growing up to a value equal read command and became a  adress next command
+
+cpu encode read command and doing encoding instruction
+
+when command of read adrress wil done cpu again run in counter command
