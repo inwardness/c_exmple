@@ -1,0 +1,26 @@
+﻿  1.1_hello_world.c
+  1.9_length_string_with_fuction.c
+D:\c_exmple\kernighan&ritchie_examples\1.9_length_string_with_fuction.c(12,24): error C2057: требуется константное выражение
+D:\c_exmple\kernighan&ritchie_examples\1.9_length_string_with_fuction.c(12,27): error C2466: невозможно выделить память для массива постоянного нулевого размера
+D:\c_exmple\kernighan&ritchie_examples\1.9_length_string_with_fuction.c(12,19): error C2133: line: неизвестный размер
+D:\c_exmple\kernighan&ritchie_examples\1.9_length_string_with_fuction.c(13,27): error C2057: требуется константное выражение
+D:\c_exmple\kernighan&ritchie_examples\1.9_length_string_with_fuction.c(13,30): error C2466: невозможно выделить память для массива постоянного нулевого размера
+D:\c_exmple\kernighan&ritchie_examples\1.9_length_string_with_fuction.c(13,19): error C2133: longest: неизвестный размер
+  1.9_maxline_orbitry.c
+D:\c_exmple\kernighan&ritchie_examples\1.9_maxline_orbitry.c(30,6): warning C4101: max: неиспользованная локальная переменная
+  define_1_0_geany.c
+  Enter.c
+D:\c_exmple\kernighan&ritchie_examples\Enter.c(2,1): error C1004: непредвиденное обнаружение конца файла
+  EOF_1_0.c
+  type_of_variables.c
+  print2.c
+D:\c_exmple\prat_examples\print2.c(11,10): warning C4477: "printf": в строке форматирования "%ld" требуется аргумент типа "long", но вариативный аргумент "2" имеет тип "__int64"
+  D:\c_exmple\prat_examples\print2.c(11,10):
+  рекомендуется использовать "%lld" в строке форматирования
+  D:\c_exmple\prat_examples\print2.c(11,10):
+  рекомендуется использовать "%Id" в строке форматирования
+  D:\c_exmple\prat_examples\print2.c(11,10):
+  рекомендуется использовать "%I64d" в строке форматирования
+  
+  Создание кода...
+D:\c_exmple\kernighan&ritchie_examples\1.9_maxline_orbitry.c(44): warning C4700: использована неинициализированная локальная переменная "i"
