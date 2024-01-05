@@ -1,4 +1,4 @@
-//Input-Ouput symbols
+// Input-Ouput symbols
 #include <stdio.h>
 
 int main()
