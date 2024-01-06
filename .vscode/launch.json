@@ -1,51 +1,24 @@
 {
-<<<<<<< HEAD
     "configurations": [
-=======
-    "version": "0.2.0",
-    "configurations": [
-        
-      
-        {
-            "name": "C/C++ Runner: Debug Session",
-            "type": "cppdbg",
-            "request": "launch",
-            "args": [],
-            "stopAtEntry": false,
-            "externalConsole": true,
-            "cwd": "d:/c_exmple/Prat_examples",
-            "program": "d:/c_exmple/Prat_examples/build/Debug/outDebug",
-            "MIMode": "gdb",
-            "miDebuggerPath": "gdb",
-            "setupCommands": [
-                {
-                    "description": "Enable pretty-printing for gdb",
-                    "text": "-enable-pretty-printing",
-                    "ignoreFailures": true
-                }
-            ]
-        },
->>>>>>> d35b8c72a3b98c088dc932760dd8f258bb3216a4
         {
             "name": "C/C++: gcc.exe build and debug active file",
             "type": "cppdbg",
             "request": "launch",
             "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
-            "args": [],
+            "args": [
+                "-fdiagnostics-color=always",
+        "-g",
+        "${file}",
+        "-o",
+        "${fileDirname}\\${fileBasenameNoExtension}.exe",
+        ""
+            ],
             "stopAtEntry": false,
-<<<<<<< HEAD
             "cwd": "${fileDirname}",
             "environment": [],
-            "externalConsole": false,
+            "externalConsole": true,
             "MIMode": "gdb",
             "miDebuggerPath": "C:\\MinGW\\bin\\gdb.exe",
-=======
-            "cwd": "c:/MinGW/bin",
-            "environment": [],
-            "externalConsole": false,
-            "MIMode": "gdb",
-            "miDebuggerPath": "c:\\MinGW\\bin\\gdb.exe",
->>>>>>> d35b8c72a3b98c088dc932760dd8f258bb3216a4
             "setupCommands": [
                 {
                     "description": "Enable pretty-printing for gdb",
@@ -60,10 +33,6 @@
             ],
             "preLaunchTask": "C/C++: gcc.exe build active file"
         }
-<<<<<<< HEAD
     ],
     "version": "2.0.0"
-=======
-    ]
->>>>>>> d35b8c72a3b98c088dc932760dd8f258bb3216a4
 }
