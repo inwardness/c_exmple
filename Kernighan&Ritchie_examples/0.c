@@ -1,17 +1,15 @@
 #include <stdio.h>
 
 int main()
-{
-    int *pc,c;
-
-    c = 50;
-
-    pc = &c;
-
-    printf("pc = %d\n",pc);
-    printf("pc = %d\n",*pc);
-    printf("pc = %p\n",*pc);
-    printf("c = %d\n",c);
-    printf("c = %p\n",c);
-    printf("c = %d\n",c);
+{   
+    int i;
+    int words[10];
+    for( i = 0;i < 10; ++i)
+    words[i] = 0;
+    char c;
+    while((c=getchar())!=EOF)
+    {
+      
+        if(c==' ')
+    }
 }
