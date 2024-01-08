@@ -4,14 +4,14 @@
             "name": "C/C++: gcc.exe build and debug active file",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
+            "program": "${fileDirname}\\${fileBasenameNoExtension}",
             "args": [
                 "-fdiagnostics-color=always",
-        "-g",
-        "${file}",
-        "-o",
-        "${fileDirname}\\${fileBasenameNoExtension}.exe",
-        ""
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}\\${fileBasenameNoExtension}.exe",
+                ""
             ],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
@@ -32,6 +32,17 @@
                 }
             ],
             "preLaunchTask": "C/C++: gcc.exe build active file"
+        },
+        {
+            "name": "(Windows) Launch",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "console": "externalTerminal"
         }
     ],
     "version": "2.0.0"
