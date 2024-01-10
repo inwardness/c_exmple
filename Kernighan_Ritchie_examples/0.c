@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+<<<<<<< HEAD
 int main() {
     FILE *file;
     int value;
@@ -30,4 +31,18 @@ int main() {
     fclose(file);
 
     return 0;
+=======
+int main()
+{   
+    int i;
+    int words[10];
+    for( i = 0;i < 10; ++i)
+    words[i] = 0;
+    char c;
+    while((c=getchar())!=EOF)
+    {
+      
+        if(c==' ')
+    }
+>>>>>>> 9286d8ee0132734f7e3b711ca0505c5bb5bfe55f
 }
