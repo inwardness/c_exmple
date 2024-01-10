@@ -1,15 +1,31 @@
+
+
+#include <conio.h>
 #include <stdio.h>
 
 int main()
-{   
-    int i;
-    int words[10];
-    for( i = 0;i < 10; ++i)
-    words[i] = 0;
+{
+    int k;
     char c;
-    while((c=getchar())!=EOF)
+    while ((k = getch()) != EOF)
     {
-      
-        if(c==' ')
-    }
+        if (k == '\b')
+        {
+            putchar('\\');
+            putchar('b');
+        }
+        else if (k == '\t')
+        {
+            putchar('\\');
+            putchar('t');
+        }
+        else if (k == '\\')
+        {
+            putchar('\\');
+            putchar('\\');
+        }
+        else
+            putchar(k);
+    };
+    return 0;
 }
