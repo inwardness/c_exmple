@@ -4,7 +4,7 @@
 long int  main()
 
 {
-	long int num=100,result;
+	long int num=2500,result;
 	 
 	result=log(num);
 

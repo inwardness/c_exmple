@@ -9,13 +9,13 @@ int main()
         if(c == ' ' && spc == 0)
         {
             ++spc;
+            putchar(c);
+        }
+        if(c == ' ' && spc >=0)
+        {
             
         }
-        if(c == ' ' && spc > 0)
-        {
-                c = getchar();
-        }
-        putchar(c);
+       
         
     }
 }
