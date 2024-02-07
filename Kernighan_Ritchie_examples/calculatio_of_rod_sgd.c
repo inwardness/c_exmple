@@ -1,8 +1,10 @@
 #include <stdio.h>
+#include <locale.h>
 #include <math.h>
 int main (){
   float l,f,F,lFA,dcha,dpa,dda;
   float v=299792458,t;
+   char *setlocale (LC_ALL, "ru_RU");
    printf("l-длинна волны, v-скорость распространения э.м. волны, t -период колебаний\n");
    printf("l-[m];v-[m/s]=%f;t-[Mhz]\n",v);
    printf("Длинна волны:l= v/t\n");
