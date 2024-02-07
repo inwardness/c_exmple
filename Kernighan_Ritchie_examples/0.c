@@ -1,3 +1,6 @@
+
+
+#include <conio.h>
 #include <stdio.h>
 
 <<<<<<< HEAD
@@ -33,16 +36,35 @@ int main() {
     return 0;
 =======
 int main()
-{   
-    int i;
-    int words[10];
-    for( i = 0;i < 10; ++i)
-    words[i] = 0;
+{
+    int k;
     char c;
-    while((c=getchar())!=EOF)
+    while ((k = getch()) != EOF)
     {
+<<<<<<< HEAD
       
         if(c==' ')
     }
 >>>>>>> 9286d8ee0132734f7e3b711ca0505c5bb5bfe55f
+=======
+        if (k == '\b')
+        {
+            putchar('\\');
+            putchar('b');
+        }
+        else if (k == '\t')
+        {
+            putchar('\\');
+            putchar('t');
+        }
+        else if (k == '\\')
+        {
+            putchar('\\');
+            putchar('\\');
+        }
+        else
+            putchar(k);
+    };
+    return 0;
+>>>>>>> f46e952e1d1db11a8a5b5fb305885bdc10e4cfb7
 }
