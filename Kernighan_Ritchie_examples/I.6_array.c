@@ -18,4 +18,5 @@
 			printf("%d",ndigit[i]);
 		printf(", symbol-divider =%d,others=%d\n",nwhite,nother);
 	}
+	
 
