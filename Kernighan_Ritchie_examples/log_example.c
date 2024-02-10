@@ -1,14 +1,14 @@
 #include<stdio.h>
 #include<math.h>
 
-long int  main()
+int  main()
 
 {
-	long int num=2500,result;
+	float num=1860,result;
 	 
-	result=log(num);
+	result=log10f(num);
 
-	printf("log(%.1d)=%.2d \n",num,result);
+	printf("log(%.1f)=%.2f \n",num,result);
 
 	return 0;
 }
