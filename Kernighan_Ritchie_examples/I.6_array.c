@@ -9,14 +9,14 @@
 		while((c=getchar())!=EOF)
 			if  (c>='0'&& c<='9')
 				++ndigit[c-'0'];
-			else if (c==' ' || c=='\n' || c=='\t')
+			else if (c==' '|| c=='\t' || c=='\n' )
 				++nwhite;
 			else
 				++nother;
 		printf("numbers=");
 		for(i=0;i<10;++i)
 			printf("%d",ndigit[i]);
-		printf(", symbol-divider =%d,others=%d\n",nwhite,nother);
+		printf(" white space =%d,others=%d\n",nwhite,nother);
 	}
 	
 
