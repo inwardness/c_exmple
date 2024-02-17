@@ -8,11 +8,11 @@
   int len;								//length of inputs line to compare
   int spc2=0;								//
   int spc1=0;								//
-char length[MAXLINE];							//array to inputs character length of 100
-char maxlength[MAXLINE];						//array to copy maximal string length of 100
-char minlength[MAXLINE];						//in this array we copy character control length
-	max=fgetline(length,MAXLINE);					//in here we'd get a maximum value of characters in length
-while((len=fgetline(length,MAXLINE))>0)					//cycle for get sring and her length while length in not by zero
+char length[IMAXLINE];							//array to inputs character length of 100
+char maxlength[IMAXLINE];						//array to copy maximal string length of 100
+char minlength[IMAXLINE];						//in this array we copy character control length
+	max=fgetline(length,IMAXLINE);					//in here we'd get a maximum value of characters in length
+while((len=fgetline(length,IMAXLINE))>0)					//cycle for get sring and her length while length in not by zero
 	{	
 	 if(len>max)							//compare control and get length
 	 {	

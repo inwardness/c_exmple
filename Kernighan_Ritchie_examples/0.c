@@ -1,10 +1,11 @@
-#include <stdio.h>
+#include<stdio.h>
 
-int main()
-{   
-    char c;
-	printf("Press Ctrl+D or Ctrl+C:\n");
-	c = getchar();
-	printf(" get c= %d",c);
-
-}
+    int main()
+    {
+        int c;
+        while ((c=getchar())!=EOF)
+        {
+            printf("%d\n",c);
+        }
+        
+    }

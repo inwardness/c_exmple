@@ -9,10 +9,10 @@ int main()
 {
 	int len; /* current line length */
 	int max; /* maximum length seen so far */
-	char line[MAXLINE]; /* current input line */
-	char longest[MAXLINE]; /* longest line saved here */
+	char line[IMAXLINE]; /* current input line */
+	char longest[IMAXLINE]; /* longest line saved here */
 	 max = 0;
-	 while ((len =fgetline(line, MAXLINE)) > 0)
+	 while ((len =fgetline(line, IMAXLINE)) > 0)
 	 if (len > max) {
 		max = len;
 		copy(longest, line);

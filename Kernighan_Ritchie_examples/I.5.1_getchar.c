@@ -1,4 +1,4 @@
-//Input-Ouput symbols
+// copy input to output 1-example
 #include <stdio.h>
 
 int main()
