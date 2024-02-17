@@ -5,7 +5,7 @@
       "includePath": [
         "${workspaceFolder}/**"
       ],
-      "compilerPath": "usr/bin/gcc",
+      "compilerPath": "/usr/bin/gdb",
       "cStandard": "${default}",
       "cppStandard": "${default}",
       "intelliSenseMode": "windows-gcc-x64",
