@@ -1,5 +1,5 @@
 	#include<stdio.h>
-	#define MAXLINE 100
+	#define IMAXLINE 100
 		int fgetline(char length[],int max);			//function to get a sum of characters in array
 		void copy(char to[],char from[]);
 		int space(char lengths[],int max);		//function copy element by element from on array to other
