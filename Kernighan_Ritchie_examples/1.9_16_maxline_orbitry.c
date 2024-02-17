@@ -11,13 +11,13 @@
   		int max=0;
   		int spc1=0;
   		int spc2=0;	 
-  	char lengths[MAXLINE];
-	char length[MAXLINE];							//array to inputs character length of 100
-	char maxlength[MAXLINE];
-	max=fgetline(length,MAXLINE);
+  	char lengths[IMAXLINE];
+	char length[IMAXLINE];							//array to inputs character length of 100
+	char maxlength[IMAXLINE];
+	max=fgetline(length,IMAXLINE);
 	spc1=space(length,max);
 	copy(maxlength,length);	
-while((len=fgetline(length,MAXLINE))>0)
+while((len=fgetline(length,IMAXLINE))>0)
     { if(len==max){
 	spc2=space(length,max);	
 		 if(spc2>spc1)

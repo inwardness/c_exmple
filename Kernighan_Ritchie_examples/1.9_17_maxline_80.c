@@ -6,20 +6,25 @@ int fgetline(char line[], int lim);
 void copy(char from[],char to[]);
 int main() {
     int len,i,j;
-    char line[MAXLINE];
-    char ML[4][MAXLINE]; 
+    char line[IMAXLINE];
+    char ML[4][IMAXLINE]; 
+ //   char ML2[MAXLINE];
+  //  char ML3[MAXLINE];
+ //   char ML4[MAXLINE];
  	for(j=0;j<4;++j)
 		ML[j]==0;
-    while ((len = fgetline(line, MAXLINE)) > 0) {
+    while ((len = fgetline(line, IMAXLINE)) > 0) {
          if(len > 5){
-            while (fgetline(ML[j],MAXLINE)!=0){                
-		          ++j;
-            }
-            copy(ML[j],line);	
-         }                    
-    }
-    for(j=0;j<4;++j)
-	printf("%s",ML);
+            for(j=0;j<4;++j){
+		 for(i=0;i<IMAXLINE-1;++i)
+		if(fgetline(ML[j],IMAXLINE)!=0)
+		copy(ML[j],line);	
+	 	++j;	 
+	 }
+         }
+	 }
+            printf("%s",ML);
+    
     return 0;
 }
 
