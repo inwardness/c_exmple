@@ -15,9 +15,9 @@ int main()
     scanf("%f", &f);
     f = f * (pow(10, 6));
     l = v / f;
-    printf("Длинна волны[m]:f = %f\n", f);
-    printf("Длинна волны[m]:v = %f\n", v);
-    printf("Длинна волны[m]:l = %3.6f\n", l);
+    printf("Frenqucy:f = %f[Hz]\n", f);
+    printf("Speed of ligth:v = %f[km/s]\n", v);
+    printf("Length of wave:l = %3.6f[m]\n", l);
     lFA = l * (5.0 / 8.0);
     printf("длинна [m]:5/8-l = %f\n", lFA);
     dpa = l * (1.0 / 2.0);
