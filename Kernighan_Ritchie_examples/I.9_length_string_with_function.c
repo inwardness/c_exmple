@@ -12,13 +12,12 @@ int main()
 	char line[MAXLINE];
 	char longest[MAXLINE];
 
-	while ((len = fgetline(line, MAXLINE)) > 0)							//symbols count from input string to variable while string doesn't equal zero
+	while ((len = fgetline(line, MAXLINE)) > 0) // symbols count from input string to variable while string doesn't equal zero
 	{
 		if (len > max)
 		{
-			max = len;													//assigne length value of string to max if it's bigger then reference
-			copy(longest, line);										//copy input string in massive if sum of symbols bigger then refered - max
-
+			max = len;			 // assigne length value of string to max if it's bigger then reference
+			copy(longest, line); // copy input string in massive if sum of symbols bigger then refered - max
 		}
 		if (max > 0)
 			printf("%s", longest);
