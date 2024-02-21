@@ -5,8 +5,6 @@
 		int space(char lengths[],int max);		//function copy element by element from on array to other
 	int main()
 		{ 
-  		int sl=0;
-  		int fl=0;	
  		int len;								//length of inputs line to compare
   		int max=0;
   		int spc1=0;
