@@ -8,7 +8,6 @@ int main() {
     int len,i,j;
     char line[IMAXLINE];
     char ML[4][IMAXLINE]; 
- //   char ML2[MAXLINE];
   //  char ML3[MAXLINE];
  //   char ML4[MAXLINE];
  	for(j=0;j<4;++j)
