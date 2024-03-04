@@ -6,22 +6,42 @@
 int fgetline(char line[], int lim);
 void copy(char from[], char to[]);
 
+
 int main()
 {
     char c;
-    
-    while (c!=EOF)
-    {    
-       c = getchar();
-        
-        if(c == ' ')
-        {
-            
-            putchar('-');
-        }
-        putchar(c);
+    int spcs =  0;
 
+
+
+  while ((c = getchar())!=EOF)
+  {
+    if ( c == ' ' || c == '\t' )
+    {
+        if(c == '\t')
+        c = ' ';
+        ++spcs;
+        
+        if (spcs == 1)
+        {
+            putchar(c);
+            
+        }
+        else if(spcs > 1)
+        {
+            putchar(c);
+
+            putchar('\b');
+        }
+        
     }
+    else
+    {
+    spcs = 0;
+    putchar(c);
+    }
+  
+  } 
 
     return 0;
 }
