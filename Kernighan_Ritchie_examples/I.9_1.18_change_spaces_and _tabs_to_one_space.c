@@ -1,47 +1,42 @@
 #include <stdio.h>
+/*
 #define STM 5
 #define IMAXLINE 20
 #define LIMIT 10
 
 int fgetline(char line[], int lim);
 void copy(char from[], char to[]);
-
-
+*/
 int main()
 {
     char c;
-    int spcs =  0;
+    int spcs = 0;
 
-
-
-  while ((c = getchar())!=EOF)
-  {
-    if ( c == ' ' || c == '\t' )
+    while ((c = getchar()) != EOF)
     {
-        if(c == '\t')
-        c = ' ';
-        ++spcs;
-        
-        if (spcs == 1)
+        if (c == ' ' || c == '\t')
         {
-            putchar(c);
-            
-        }
-        else if(spcs > 1)
-        {
-            putchar(c);
+            if (c == '\t')
+                c = ' ';
+            ++spcs;
 
-            putchar('\b');
+            if (spcs == 1)
+            {
+                putchar(c);
+            }
+            else if (spcs > 1)
+            {
+                putchar(c);
+
+                putchar('\b');
+            }
         }
-        
+        else
+        {
+            spcs = 0;
+            putchar(c);
+        }
     }
-    else
-    {
-    spcs = 0;
-    putchar(c);
-    }
-  
-  } 
 
     return 0;
 }
