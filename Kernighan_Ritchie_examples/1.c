@@ -3,8 +3,16 @@
 
 int main()
 {	 
+	float _1_8_waveLength;
+	float _1_4_waveLength;
+	float _3_8_waveLength;
+	float _1_2_waveLength;
+	float _5_8_waveLength;
+	float _3_4_waveLength;
+	float _7_8_waveLength;
 	float frequency;
-	float V;
+	float velocity = 299792458.000;
+	float waveLength;
 	float inch = 25.4;
 	float mm8 = (inch/8);
 	float mm4 = (inch/4);
@@ -35,10 +43,21 @@ int main()
 	printf("174\t 35-7/8\"\t %f\n", l1 = 35*inch+mm7_8);
 	while (frequency!=EOF)
 	{
-		puts("Enter a value of frequency to compute a length rod:");
-		scan("%f",&frequency);
-		puts("velocity of ligth - V:299 792 458 [m/s] ");
-		printf()
+		puts("Enter a value of frequency to compute a length rod:[xxx]MHz");
+		scanf("%f",&frequency);
+		frequency = frequency * (pow(10,6));
+		printf("frequency:%f[Hz]\n",frequency);
+		printf("velocity of ligth (velocity):%f[m/s]\n",velocity);
+		printf("Length of wave (waveLength):[m] = velocity:%f[m/s]/frequency:%f[MHz(1/s)]\n",velocity,frequency);
+		waveLength = velocity / frequency;
+		printf("waveLength = %f [m] == %f[mm]\n",waveLength,waveLength*1000);
+		printf("1/8_waveLength = %f [m] == %2.5f[mm]\n", _1_8_waveLength = 1.0 * (waveLength/8.0),_1_8_waveLength * 1000);
+		printf("1/4_waveLength = %f [m] == %f[mm]\n",_1_4_waveLength = 1.0 * (waveLength/4.0),_1_4_waveLength * 1000);
+		printf("3/8_waveLength = %f [m] == %f[mm]\n",_3_8_waveLength = 3.0 * (waveLength/8.0),_3_8_waveLength * 1000);
+		printf("1/2_waveLength = %f [m] == %f[mm]\n",_1_2_waveLength = 1.0 * (waveLength/2.0),_1_2_waveLength * 1000);
+		printf("5/8_waveLength = %f [m] == %f[mm]\n",_5_8_waveLength = 5.0 * (waveLength/8.0),_5_8_waveLength * 1000);
+		printf("3/4_waveLength = %f [m] == %f[mm]\n",_3_4_waveLength = 3.0 * (waveLength/4.0),_3_4_waveLength * 1000);
+		printf("7/8_waveLength = %f [m] == %f[mm]\n",_7_8_waveLength = 7.0 * (waveLength/8.0),_7_8_waveLength * 1000);
 	}
 	
 	 
