@@ -16,8 +16,12 @@ int main()
 
         if (c == ' ' || c == '\t')
         {
+            ++spaceC;
             
+            if(spaceC > 1)
+            {
                 putchar('\b');
+            }
             
         }
         else
