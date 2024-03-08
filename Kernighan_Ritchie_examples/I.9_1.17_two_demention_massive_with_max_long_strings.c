@@ -29,25 +29,18 @@ int main()
                 if (i == count)
                     for (j = 0; j < IMAXLINE; ++j)
                     {
-                     
-                     
-                      ML[count][j] = line[j];
-                     
-                        
-                    } 
-                
+                        ML[count][j] = line[j];
+                    }
             }
             ++count;
         }
     }
-    for ( i = 0; i < STM; i++)
+    for (i = 0; i < STM; i++)
     {
-        for ( j = 0; j < IMAXLINE; j++)
+        for (j = 0; j < IMAXLINE; j++)
         {
-            printf("%c",ML[i][j]);
+            printf("%c", ML[i][j]);
         }
-        
-    
     }
 
     return 0;

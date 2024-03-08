@@ -9,18 +9,21 @@ void copy(char from[], char to[]);
 int main()
 {
     char c;
-    
-    while (c!=EOF)
-    {    
-       c = getchar();
-        
-        if(c == ' ')
+    int spaceC = 0;
+    int newL = 0;
+    while ((c = getchar()) != EOF)
+    {
+
+        if (c == ' ' || c == '\t')
         {
             
-            putchar('-');
+                putchar('\b');
+            
         }
-        putchar(c);
-
+        else
+        {
+            putchar(c);
+        }
     }
 
     return 0;
