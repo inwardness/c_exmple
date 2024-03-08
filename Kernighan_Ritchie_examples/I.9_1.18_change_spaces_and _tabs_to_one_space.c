@@ -1,11 +1,12 @@
 #include <stdio.h>
+/*
 #define STM 5
 #define IMAXLINE 20
 #define LIMIT 10
 
 int fgetline(char line[], int lim);
 void copy(char from[], char to[]);
-
+*/
 int main()
 {
     char c;
