@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 #define STM 5
-#define IMAXLINE 200
+#define IMAXLINE 20
 #define LIMIT 10
 
 int fgetline(char line[], int lim);
@@ -19,13 +19,13 @@ int main()
          printf("%s",line);
      }
 */   
-    for (size_t i = 0; i  < EOF; i++)
+    for (size_t i = 0; i  < IMAXLINE; i++)
 {
     scanf("%c",&line[i]);
 }
 
 revers(line,IMAXLINE);
-    for (size_t i = 0; i < EOF; i++)
+    for (size_t i = 0; i < IMAXLINE; i++)
     {
         printf("%c",line[i]);
     }
