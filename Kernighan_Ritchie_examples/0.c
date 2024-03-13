@@ -1,42 +1,38 @@
-#include<stdio.h>
-#include<string.h>
+#include <stdio.h>
+#include <string.h>
 
-//string.h function:
+// string.h function:
 //
-    
-   // int main()
-   // {
-        /*String Declaration*/
-     //   char nickanme[20];
-        
-     //  printf("Enter your Nick name:");
 
-        /*I am a reading the input string and storing  it in name
-         *Array name alone works as a base address of array so
-         *we can use array instead of &nickname here
-         */
+// int main()
+// {
+/*String Declaration*/
+//   char nickanme[20];
 
-     //  scanf("%s",nickanme);
+//  printf("Enter your Nick name:");
 
-        /*Display String*/
-     //  printf("%s",nickanme);
-    
-    //}
+/*I am a reading the input string and storing  it in name
+ *Array name alone works as a base address of array so
+ *we can use array instead of &nickname here
+ */
 
-    
+//  scanf("%s",nickanme);
 
-     int main()
-    {
-        /*String Declaration*/
-        char nickanme[20];
+/*Display String*/
+//  printf("%s",nickanme);
 
-        /*Console display using puts*/
-        puts("Enter your Nick name:");        
+//}
 
-        /*Input using gets*/
-        gets(nickanme);
+int main()
+{
+   /*String Declaration*/
+   char nickanme[20];
 
-        puts(nickanme);
+   /*Console display using puts*/
+   printf("Enter your Nick name:");
 
-        
-    }
+   /*Input using gets*/
+   scanf("%s", nickanme);
+
+   printf("%s\n", nickanme);
+}
