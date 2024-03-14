@@ -1,25 +1,20 @@
 #include <stdio.h>
-/*
-#define STM 5
-#define IMAXLINE 20
-#define LIMIT 10
 
-int fgetline(char line[], int lim);
-void copy(char from[], char to[]);
-*/
 int main()
 {
     char c;
     int spcs = 0;
+    int ns = 0;
+
+    printf("Print a string with double- quard- spaces or tabs or with empty lines:\n");
 
     while ((c = getchar()) != EOF)
     {
-        if (c == ' ' || c == '\t')
+        if (c == ' ' || c == '\t' || c == '\n')
         {
             if (c == '\t')
                 c = ' ';
             ++spcs;
-
             if (spcs == 1)
             {
                 putchar(c);
@@ -27,8 +22,21 @@ int main()
             else if (spcs > 1)
             {
                 putchar(c);
-
                 putchar('\b');
+            }
+
+            else if (c == '\n')
+            {
+                if (ns == 0)
+                {
+                    ++ns;
+                    putchar(c);
+                }
+                else if (ns > 1)
+                {
+                    ns = 0;
+                    putchar('\b');
+                }
             }
         }
         else
@@ -40,27 +48,3 @@ int main()
 
     return 0;
 }
-/*
-int fgetline(char line[], int lim)
-{
-    int i;
-    char c;
-    for (i = 0; i < lim - 1 && (c = getchar()) != EOF && c != '\n'; ++i)
-        line[i] = c;
-    if (c == '\n')
-    {
-        line[i] = c;
-        ++i;
-    }
-    return i;
-}
-
-void copy(char from[], char to[])
-{
-    char i;
-
-    while ((from[i] = to[i]) != '\0')
-
-    i++;
-}
-*/

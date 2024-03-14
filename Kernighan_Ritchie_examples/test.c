@@ -1,6 +1,7 @@
 #include <stdio.h>
-void main() {
-    int i = 0;
-    i += 20;
+int main() {
+    short i = 0;
+    i =i + 20;
+    printf("%d",i);
     
 }
