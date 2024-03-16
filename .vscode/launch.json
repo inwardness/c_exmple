@@ -19,7 +19,7 @@
             "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
             "args": [],
             "stopAtEntry": false,
-            "cwd": "c:/MinGW/bin",
+            "cwd": "c:/MinGW/bin/gcc.exe",
             "environment": [],
             "externalConsole": true,
             "MIMode": "gdb",
