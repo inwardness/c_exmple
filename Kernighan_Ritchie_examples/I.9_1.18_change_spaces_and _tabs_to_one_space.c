@@ -11,22 +11,30 @@ int main()
 {
     char c;
     int spaceC = 0;
-    int newL = 0;
+    // int newL = 0;
     while ((c = getchar()) != EOF)
     {
-
         if (c == ' ' || c == '\t')
         {
             ++spaceC;
+            if (c == '\t'){
             
-            if(spaceC > 1)
-            {
-                putchar('\b');
+                putchar(' ');
             }
+                if (spaceC == 1)
+                {
+                    putchar(c);
+                }
+                else if (spaceC > 1)
+                {
+                    putchar(c);
+                    putchar('\b');
+                }
             
         }
         else
         {
+            spaceC = 0;
             putchar(c);
         }
     }
