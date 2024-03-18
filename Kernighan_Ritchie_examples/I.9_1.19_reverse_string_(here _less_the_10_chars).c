@@ -1,13 +1,10 @@
 #include <stdio.h>
-
-#define STM 5
 #define IMAXLINE 40
 #define LIMIT 10
 
 void printString(char line[], int lim);
 void clearString(char line[], int lim);
 int fgetline(char line[], int lim);
-int retrievLine(char line[], int lim);
 void revers(char line[], int lim);
 
 int main()
@@ -37,6 +34,7 @@ int main()
     }
     return 0;
 }
+
 int fgetline(char line[], int lim)
 {
     char c;
@@ -66,14 +64,6 @@ void clearString(char line[], int lim)
     for (size_t i = 0; i < IMAXLINE; i++)
 
         line[i] = 0;
-}
-int retrievLine(char line[], int lim)
-{
-    for (size_t i = 0; i < IMAXLINE - 1; i++)
-    {
-        scanf("%c", &line[i]);
-    }
-    return 0;
 }
 
 void revers(char line[], int lim)

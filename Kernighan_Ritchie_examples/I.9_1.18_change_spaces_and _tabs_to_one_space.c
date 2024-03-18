@@ -7,7 +7,7 @@ int main()
     int ns = 0;
 
     printf("Print a string with double- quard- spaces or tabs or with empty lines:\n");
-
+    printf("for exit press - Ctrl+D\n");
     while ((c = getchar()) != EOF)
     {
         if (c == ' ' || c == '\t' || c == '\n')
