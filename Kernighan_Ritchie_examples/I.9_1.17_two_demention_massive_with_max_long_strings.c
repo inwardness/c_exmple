@@ -1,3 +1,5 @@
+/* Write a program to print all input lines that are longer than 80 characters.*/
+
 #include <stdio.h>
 #define STM 5
 #define IMAXLINE 20

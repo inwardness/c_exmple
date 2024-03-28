@@ -1,42 +1,34 @@
+#define MAX 30
 #include<stdio.h>
 #include<string.h>
 
-//string.h function:
-//
-    
-   // int main()
-   // {
-        /*String Declaration*/
-     //   char nickanme[20];
-        
-     //  printf("Enter your Nick name:");
-
-        /*I am a reading the input string and storing  it in name
-         *Array name alone works as a base address of array so
-         *we can use array instead of &nickname here
-         */
-
-     //  scanf("%s",nickanme);
-
-        /*Display String*/
-     //  printf("%s",nickanme);
-    
-    //}
-
-    
-
+   
      int main()
     {
-        /*String Declaration*/
-        char nickanme[20];
+     /* char s[30];
+      printf("enter anew string:\n");
+      while (gets(s)!=EOF)
+      {
+      
+      gets(s);
+      
+      puts(s);
+      }
+      */
 
-        /*Console display using puts*/
-        puts("Enter your Nick name:");        
+     char i;
+     
+     while ((i = getchar())!=EOF)
+     {       
+      putchar(i);   
+      if (i == ' ')
+      {
+       putchar('\b');
+      }
+      
+      
+      
+     }
+     
 
-        /*Input using gets*/
-        gets(nickanme);
-
-        puts(nickanme);
-
-        
     }
