@@ -1,3 +1,6 @@
+/*Write  a  program  to  remove  trailing  blanks  and  tabs  from  each  line  of  input,
+and to delete entirely blank lines.*/
+
 #include <stdio.h>
 
 int main()
@@ -10,39 +13,44 @@ int main()
     printf("for exit press - Ctrl+D\n");
     while ((c = getchar()) != EOF)
     {
-        if (c == ' ' || c == '\t' || c == '\n')
+        if (c == ' ' || c == '\t' || c == '\n') // find in input space,tab or enter
         {
-            if (c == '\t')
-                c = ' ';
-            ++spcs;
-            if (spcs == 1)
+            if (c == '\t') // exchancge tab -
+                c = ' ';   // to space
+            ++spcs;        // counting spaces
+            if (spcs == 1) // while entered one space - output
             {
                 putchar(c);
             }
-            else if (spcs > 1)
+            else if (spcs > 1) // if counter of spaces become bigger then 1
             {
                 putchar(c);
                 putchar('\b');
             }
 
-            else if (c == '\n')
+            if (c == '\n') // if eneter input ones - we think it's writing new string
             {
-                if (ns == 0)
+                ++ns;
+                if (ns == 1) // while counter of new line less 0
                 {
-                    ++ns;
-                    putchar(c);
+                    putchar(c); // add counter and write char
                 }
-                else if (ns > 1)
+                else if (ns > 2) // if counter bigger the 1
                 {
-                    ns = 0;
+                   
+                    putchar('\b'); // down the counter and delete char = new line
                     putchar('\b');
                 }
+            }else
+            {
+                ns = 0;
             }
+            
         }
         else
         {
             spcs = 0;
-            putchar(c);
+            putchar(c); // if input letter - down counter and wrtite char
         }
     }
 
