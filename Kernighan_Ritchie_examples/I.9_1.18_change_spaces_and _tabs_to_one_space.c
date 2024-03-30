@@ -5,7 +5,7 @@ and to delete entirely blank lines.*/
 #include <stdlib.h>
 #define STM 5
 #define IMAXLINE 100
-#define LIMIT 10
+#define  LIMIT 10
 
 int fgetline(char line[], int lim);
 void clearstring(char line[], int lim);
