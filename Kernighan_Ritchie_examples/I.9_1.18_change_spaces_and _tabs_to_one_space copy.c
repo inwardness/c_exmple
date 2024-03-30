@@ -31,7 +31,7 @@ revers(line,IMAXLINE);
     }
     
 
-return 0;
+return   0;
 }
 
 int fgetline(char line[], int lim)
