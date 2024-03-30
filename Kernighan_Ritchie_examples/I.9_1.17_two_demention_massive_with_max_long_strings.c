@@ -1,55 +1,48 @@
-#include <stdio.h>
-#define STM 5
-#define IMAXLINE 20
-#define LIMIT 10
+/*Write a program to print all input lines that are longer than 10 characters.*/
 
-int fgetline(char line[], int lim);
-void copy(char from[], char to[]);
+#include <stdio.h>
+#define COLUMNS 5       // columns in two demensional array
+#define SYMINRAW 20     // symbol in  string
+#define LIMITSTRINGS 10 // minimum of definition length string to write
+
+int fgetline(char line[], int lim);                         // function to get length cerrent length
+void copy(char from[], char to[]);                          // function of copy string do two demension arrays
+void fclearStrings(char StringsMassive[COLUMNS][SYMINRAW]); // function in start of program for clear two demensional array
+void fprint(char StringsMassive[COLUMNS][SYMINRAW]);        // function for print two demenstional array
 
 int main()
 {
-    int len, i, j;
-    int count = 0;
-    char line[IMAXLINE];
-    char ML[STM][IMAXLINE];
+    int len, i, j;                          // length of input string and elements of array
+    int count = 0;                          // counter  not writen string
+    char line[SYMINRAW];                    // input string
+    char StringsMassive[COLUMNS][SYMINRAW]; // two demnesional array for founded strings
 
-    for (i = 0; i < STM; ++i)
+    fclearStrings(StringsMassive);
+    printf("Enter a five string:\n");
+
+    while ((len = fgetline(line, SYMINRAW)) > 0) // cycle work while string not equal 0
     {
-        for (j = 0; j < IMAXLINE; j++)
+
+        if (len > LIMITSTRINGS) // value of symbol in string meets the condition
         {
-            ML[i][j] = 0;
-        }
-    }
-    while ((len = fgetline(line, IMAXLINE)) > 0)
-    {
-        if (len > LIMIT)
-        {
-            for (i = 0; i < STM; ++i)
+
+            for (i = 0; i < COLUMNS; ++i)
             {
                 if (i == count)
-                    for (j = 0; j < IMAXLINE; ++j)
+                    for (j = 0; j < SYMINRAW; ++j)
                     {
-                     
-                     
-                      ML[count][j] = line[j];
-                     
-                        
-                    } 
-                
+
+                        StringsMassive[count][j] = line[j];
+                    }
             }
             ++count;
         }
     }
-    for ( i = 0; i < STM; i++)
-    {
-        for ( j = 0; j < IMAXLINE; j++)
-        {
-            printf("%c",ML[i][j]);
-        }
-        
-    
-    }
 
+    putchar('\n');
+    printf("Strings with more then 10 symbols:\n");
+    fprint(StringsMassive);
+    putchar('\n');
     return 0;
 }
 
@@ -66,13 +59,34 @@ int fgetline(char line[], int lim)
     }
     return i;
 }
-/*
+
+void fclearStrings(char StringsMassive[COLUMNS][SYMINRAW])
+{
+    for (__int32_t i = 0; i < COLUMNS - 1; ++i)
+    {
+        for (__int32_t j = 0; j < SYMINRAW - 1; j++)
+        {
+            StringsMassive[i][j] = 0;
+        }
+    }
+}
+
+void fprint(char StringsMassive[COLUMNS][SYMINRAW])
+{
+    for (__int32_t i = 0; i < COLUMNS - 1; i++)
+    {
+        for (__int32_t j = 0; j < SYMINRAW - 1; j++)
+        {
+            printf("%c", StringsMassive[i][j]);
+        }
+    }
+}
+
 void copy(char from[], char to[])
 {
-    char i;
+    int i = 0;
 
     while ((from[i] = to[i]) != '\0')
 
-    i++;
+        i++;
 }
-*/

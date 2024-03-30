@@ -1,5 +1,5 @@
 #include <stdio.h>
-#define IMAXLINE 40
+#define SYMINRAW 40
 #define LIMIT 10
 
 void printString(char line[], int lim);
@@ -9,21 +9,21 @@ void revers(char line[], int lim);
 
 int main()
 {
-    char line[IMAXLINE];
+    char line[SYMINRAW];
     int len = 0;
-    clearString(line, IMAXLINE);
+    clearString(line, SYMINRAW);
 
-    while ((len = fgetline(line, IMAXLINE)) > 0)
-    {
-        if (len > LIMIT)
+    while ((len = fgetline(line, SYMINRAW)) > 0)
+    
+        if (len > LIMITSTRING)
         {
-            // retrievLine(line,IMAXLINE);
+            // retrievLine(line,SYMINRAW);
 
-            revers(line, IMAXLINE);
+            revers(line, SYMINRAW);
 
-            printString(line, IMAXLINE);
+            printString(line, SYMINRAW);
 
-            clearString(line, IMAXLINE);
+            clearString(line, SYMINRAW);
 
             putchar('\n');
         }
@@ -53,7 +53,7 @@ int fgetline(char line[], int lim)
 
 void printString(char line[], int lim)
 {
-    for (size_t i = 0; i < IMAXLINE; i++)
+    for (size_t i = 0; i < SYMINRAW; i++)
     {
         printf("%c", line[i]);
     }
@@ -61,7 +61,7 @@ void printString(char line[], int lim)
 
 void clearString(char line[], int lim)
 {
-    for (size_t i = 0; i < IMAXLINE; i++)
+    for (size_t i = 0; i < SYMINRAW; i++)
 
         line[i] = 0;
 }
