@@ -1,0 +1,23 @@
+{
+  "configurations": [
+    {
+      "name": "windows-gcc-x86",
+      "includePath": [
+        "${workspaceFolder}/**"
+      ],
+      "compilerPath": "c:/MinGW/bin/gcc.exe",
+      "cStandard": "${default}",
+      "cppStandard": "${default}",
+      "intelliSenseMode": "windows-gcc-x86",
+      "compilerArgs": [
+        "-fdiagnostics-color=always",
+        "-g",
+        "${file}",
+        "-o",
+        "${fileDirname}\\${fileBasenameNoExtension}.exe",
+        ""
+      ]
+    }
+  ],
+  "version": 4
+}
