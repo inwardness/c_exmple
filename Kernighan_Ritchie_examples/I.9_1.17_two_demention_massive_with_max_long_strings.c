@@ -1,4 +1,4 @@
-/*Write a program to print all input lines that are longer than 10 characters.*/
+/* Write a program to print all input lines that are longer than 80 characters.*/
 
 #include <stdio.h>
 #define COLUMNS 5       // columns in two demensional array
@@ -31,11 +31,17 @@ int main()
                 if (i == count)
                     for (j = 0; j < SYMINRAW; ++j)
                     {
-
-                        StringsMassive[count][j] = line[j];
+                        ML[count][j] = line[j];
                     }
             }
             ++count;
+        }
+    }
+    for (i = 0; i < STM; i++)
+    {
+        for (j = 0; j < IMAXLINE; j++)
+        {
+            printf("%c", ML[i][j]);
         }
     }
 
