@@ -4,26 +4,26 @@
 
 void printString(char line[], int lim);
 void clearString(char line[], int lim);
-int fgetline(char line[], int lim);
+int f1getline(char line[], int lim);
 void revers(char line[], int lim);
 
 int main()
 {
-    char line[SYMINRAW];
+    char line[SYMINLINE];
     int len = 0;
-    clearString(line, SYMINRAW);
+    clearString(line, SYMINLINE);
 
-    while ((len = fgetline(line, SYMINRAW)) > 0)
+    while ((len = f1getline(line, SYMINLINE)) > 0)
     
         if (len > LIMITSTRING)
         {
             // retrievLine(line,SYMINRAW);
 
-            revers(line, SYMINRAW);
+            revers(line, SYMINLINE);
 
-            printString(line, SYMINRAW);
+            printString(line, SYMINLINE);
 
-            clearString(line, SYMINRAW);
+            clearString(line, SYMINLINE);
 
             putchar('\n');
         }
@@ -53,7 +53,7 @@ int fgetline(char line[], int lim)
 
 void printString(char line[], int lim)
 {
-    for (size_t i = 0; i < SYMINRAW; i++)
+    for (size_t i = 0; i < SYMINLINE; i++)
     {
         printf("%c", line[i]);
     }
@@ -61,7 +61,7 @@ void printString(char line[], int lim)
 
 void clearString(char line[], int lim)
 {
-    for (size_t i = 0; i < SYMINRAW; i++)
+    for (size_t i = 0; i < SYMINLINE; i++)
 
         line[i] = 0;
 }

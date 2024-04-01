@@ -1,6 +1,6 @@
 #include <stdio.h>
 #define IMAXLINE 100
-int fgetline(char length[], int max); // function to get a sum of characters in array
+int f1getline(char length[], int max); // function to get a sum of characters in array
 void copy(char to[], char from[]);
 int space(char ArrayForSpaces[], int max); // function copy element by element from on array to other
 int main()
@@ -10,13 +10,13 @@ int main()
 	int max = 0;
 	int SpsI1w = 0;
 	int SpsI2w = 0;
-	char ArrayForSpaces[IMAXLINE];
-	char length[IMAXLINE]; // array to inputs character length of 100
-	char maxlength[IMAXLINE];
-	max = fgetline(length, IMAXLINE);
+	char ArrayForSpaces[SYMINLINE];
+	char length[SYMINLINE]; // array to inputs character length of 100
+	char maxlength[SYMINLINE];
+	max = f1getline(length, SYMINLINE);
 	SpsI1w = space(ArrayForSpaces, max);
 	copy(maxlength, length);
-	while ((len = fgetline(length, IMAXLINE)) > 0)
+	while ((len = f1getline(length, SYMINLINE)) > 0)
 	{
 		if (len == max)
 		{
@@ -47,7 +47,7 @@ int space(char length[], int max)
 			++m;
 	return m;
 }
-int fgetline(char length[], int maxline)
+int f1getline(char length[], int maxline)
 {
 	int c, i;
 	int max;
