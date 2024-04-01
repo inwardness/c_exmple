@@ -1,5 +1,2 @@
-
-c_exmple\.vscode\c_cpp_properties.json
-c_exmple\.vscode\settings.json
-c_exmple\.vscode\launch.json
-c_exmple\.vscode\tasks.json
+launch.json
+tasks.json
