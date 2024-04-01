@@ -13,9 +13,9 @@ int main()
     char line[IMAXLINE];
     char ML[STM][IMAXLINE];
 
-    for (i = 0; i < STM; ++i)
+    for (i = 0; i < STM-1; ++i)
     {
-        for (j = 0; j < IMAXLINE; j++)
+        for (j = 0; j < IMAXLINE-1; j++)
         {
             ML[i][j] = 0;
         }
@@ -24,10 +24,10 @@ int main()
     {
         if (len > LIMIT)
         {
-            for (i = 0; i < STM; ++i)
+            for (i = 0; i < STM-1; ++i)
             {
                 if (i == count)
-                    for (j = 0; j < IMAXLINE; ++j)
+                    for (j = 0; j < IMAXLINE-1; ++j)
                     {
                      
                      
@@ -40,9 +40,9 @@ int main()
             ++count;
         }
     }
-    for ( i = 0; i < STM; i++)
+    for ( i = 0; i < STM-1; i++)
     {
-        for ( j = 0; j < IMAXLINE; j++)
+        for ( j = 0; j < IMAXLINE-1; j++)
         {
             printf("%c",ML[i][j]);
         }

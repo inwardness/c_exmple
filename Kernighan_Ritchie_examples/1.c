@@ -3,27 +3,20 @@
 
 int main()
 {	 
-	float _1_8_waveLength;
-	float _1_4_waveLength;
-	float _3_8_waveLength;
-	float _1_2_waveLength;
-	float _5_8_waveLength;
-	float _3_4_waveLength;
+	float _1_8_waveLength;	float _1_4_waveLength;	float _3_8_waveLength;	float _1_2_waveLength;	float _5_8_waveLength;	float _3_4_waveLength;
 	float _7_8_waveLength;
-	float frequency;
-	float velocity = 299792458.000;
-	float waveLength;
+		float frequency; float waveLength; 	float velocity = 299792458.000;
+	
 	float inch = 25.4;
-	float mm8 = (inch/8);
-	float mm4 = (inch/4);
-	float mm3_8 = ((inch/8)*3);
-	float mm2 = (inch/2);
-	float mm5_8 = ((inch/8)*5);
-	float mm3_4 = ((inch/4)*3);
+
+	float mm8 = (inch/8);	float mm4 = (inch/4);	float mm3_8 = ((inch/8)*3);	float mm2 = (inch/2);	float mm5_8 = ((inch/8)*5);	float mm3_4 = ((inch/4)*3);
 	float mm7_8 = ((inch/8)*7 );
+
 	float l1,l2,l3,l4,l5,l6,l7,l8,l9;
-	puts("table of frenqucy and length in inch and mm");
-	printf("G-144-174Mhz model 3dB 5/8 wave mobile\n");
+	puts("table of frenqucy and length in inch and mm");	printf("G-144-174Mhz model 3dB 5/8 wave mobile\n");
+
+	
+
 	printf("MHz\tInches\t\tmm\n");
 	printf("144\t 48-1/8\"\t %f\n", l1 = 48*inch+mm8);
 	printf("146\t 47-1/4\"\t %f\n", l1 = 47*inch+mm4);
