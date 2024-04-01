@@ -18,8 +18,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "d:/kobets/c_exmple/Kernighan_Ritchie_examples",
-      "program": "d:/kobets/c_exmple/Kernighan_Ritchie_examples/build/Debug/outDebug",
+      "cwd": "${fileDirname}/${fileBasenameNoExtension}.exe",
+      "program": "${fileDirname}/${fileBasenameNoExtension}.exe",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
