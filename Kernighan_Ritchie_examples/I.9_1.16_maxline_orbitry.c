@@ -3,7 +3,7 @@ the length of arbitrary long input lines, and as much as possible of the text. *
 
 #include <stdio.h>
 #define SYMINSTRING 100
-int fgetline(char lenInString[], int max); // function for counting length string
+int f1getline(char lenInString[], int max); // function for counting length string
 void copy(char to[], char from[]);		   // copy function from getin massive to writeout massive
 int fchars(char lenInString[], int max);   // function count spaces in equal string
 
@@ -20,11 +20,11 @@ int main()
 
 	printf("print arbitry string:\n\n");
 
-	max = fgetline(lenInStrings, SYMINSTRING); // assigned maxline first inputs string
+	max = f1getline(lenInStrings, SYMINSTRING); // assigned maxline first inputs string
 	chrs1 = fchars(lenInStrings, max);		// counting chars in first string
 	copy(FirstMaxString, lenInStrings);		// copy string to FirstMaxString output
 	printf("symbols in string - %d; chars in string - %d;\n\n",max,chrs1);
-	while ((len = fgetline(lenInStrings, SYMINSTRING)) > 0) // while chars in string does not equal 0
+	while ((len = f1getline(lenInStrings, SYMINSTRING)) > 0) // while chars in string does not equal 0
 	{
 		if (len > max)
 		{
@@ -60,7 +60,7 @@ int fchars(char lenInString[], int max)
 			++m;
 	return m;
 }
-int fgetline(char lenInStrings[], int maxline)
+int f1getline(char lenInStrings[], int maxline)
 {
 	char c;
 	int i;

@@ -2,25 +2,25 @@
 
 #include <stdio.h>
 #define COLUMNS 5       // columns in two demensional array
-#define SYMINRAW 20     // symbol in  string
+#define SYMINLINE 40     // symbol in  string
 #define LIMITSTRINGS 10 // minimum of definition length string to write
 
-int fgetline(char line[], int lim);                         // function to get length cerrent length
+int f1getline(char line[], int lim);                         // function to get length cerrent length
 void copy(char from[], char to[]);                          // function of copy string do two demension arrays
-void fclearStrings(char StringsMassive[COLUMNS][SYMINRAW]); // function in start of program for clear two demensional array
-void fprint(char StringsMassive[COLUMNS][SYMINRAW]);        // function for print two demenstional array
+void fclearStrings(char StringsMassive[COLUMNS][SYMINLINE]); // function in start of program for clear two demensional array
+void fprint(char StringsMassive[COLUMNS][SYMINLINE]);        // function for print two demenstional array
 
 int main()
 {
     int len, i, j;                          // length of input string and elements of array
     int count = 0;                          // counter  not writen string
-    char line[SYMINRAW];                    // input string
-    char StringsMassive[COLUMNS][SYMINRAW]; // two demnesional array for founded strings
+    char line[SYMINLINE];                    // input string 
+    char StringsMassive[COLUMNS][SYMINLINE]; // two demnesional array for founded strings
 
     fclearStrings(StringsMassive);
     printf("Enter a five string:\n");
 
-    while ((len = fgetline(line, SYMINRAW)) > 0) // cycle work while string not equal 0
+    while ((len = f1getline(line, SYMINLINE)) > 0) // cycle work while string not equal 0
     {
 
         if (len > LIMITSTRINGS) // value of symbol in string meets the condition
@@ -29,19 +29,19 @@ int main()
             for (i = 0; i < COLUMNS; ++i)
             {
                 if (i == count)
-                    for (j = 0; j < SYMINRAW; ++j)
+                    for (j = 0; j < SYMINLINE; ++j)
                     {
-                        ML[count][j] = line[j];
+                       StringsMassive[count][j] = line[j];
                     }
             }
             ++count;
         }
     }
-    for (i = 0; i < STM; i++)
+    for (i = 0; i < COLUMNS; i++)
     {
-        for (j = 0; j < IMAXLINE; j++)
+        for (j = 0; j < SYMINLINE; j++)
         {
-            printf("%c", ML[i][j]);
+            printf("%c", StringsMassive[i][j]);
         }
     }
 
@@ -52,7 +52,7 @@ int main()
     return 0;
 }
 
-int fgetline(char line[], int lim)
+int f1getline(char line[], int lim)
 {
     int i;
     char c;
@@ -66,22 +66,22 @@ int fgetline(char line[], int lim)
     return i;
 }
 
-void fclearStrings(char StringsMassive[COLUMNS][SYMINRAW])
+void fclearStrings(char StringsMassive[COLUMNS][SYMINLINE])
 {
     for (__int32_t i = 0; i < COLUMNS - 1; ++i)
     {
-        for (__int32_t j = 0; j < SYMINRAW - 1; j++)
+        for (__int32_t j = 0; j < SYMINLINE - 1; j++)
         {
             StringsMassive[i][j] = 0;
         }
     }
 }
 
-void fprint(char StringsMassive[COLUMNS][SYMINRAW])
+void fprint(char StringsMassive[COLUMNS][SYMINLINE])
 {
     for (__int32_t i = 0; i < COLUMNS - 1; i++)
     {
-        for (__int32_t j = 0; j < SYMINRAW - 1; j++)
+        for (__int32_t j = 0; j < SYMINLINE - 1; j++)
         {
             printf("%c", StringsMassive[i][j]);
         }

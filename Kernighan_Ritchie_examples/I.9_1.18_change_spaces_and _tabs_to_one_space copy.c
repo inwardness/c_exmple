@@ -1,31 +1,31 @@
 #include <stdio.h>
 
 #define STM 5
-#define IMAXLINE 20
+#define SYMINLINE 20
 #define LIMIT 10
 
-int fgetline(char line[], int lim);
+int f1getline(char line[], int lim);
 void revers(char line[], int lim);
 
 int main()
 {
     char c;
-    char line[IMAXLINE];
+    char line[SYMINLINE];
     int len = 0;
-    /* while ((len = (fgetline(line,IMAXLINE))) > 0)
+    /* while ((len = (f2getline(line,SYMINLINE))) > 0)
      {
-         revers(line,IMAXLINE);
+         revers(line,SYMINLINE);
 
          printf("%s",line);
       */
    
-    for (size_t i = 0; i  < IMAXLINE; i++)
+    for (size_t i = 0; i  < SYMINLINE; i++)
 {
     scanf("%c",&line[i]);
 }
 
-revers(line,IMAXLINE);
-    for (size_t i = 0; i < IMAXLINE; i++)
+revers(line,SYMINLINE);
+    for (size_t i = 0; i < SYMINLINE; i++)
     {
         printf("%c",line[i]);
     }
@@ -34,7 +34,7 @@ revers(line,IMAXLINE);
 return   0;
 }
 
-int fgetline(char line[], int lim)
+int f1getline(char line[], int lim)
 {
     char c;
     int i;
