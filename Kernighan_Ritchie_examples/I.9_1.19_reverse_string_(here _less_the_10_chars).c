@@ -39,14 +39,14 @@ int f1getline(char line[], int lim)
     char c;
     int i;
     for (i = 0; i < lim -1 && (c = getchar()) != '\n' && c != EOF; i++)
-    {
+    
         line[i] = c;
         if (line[i] == '\n')
         {
             line[i] = c;
             ++i;
         }
-    }
+    line[i] = '\0'; 
     return i;
 }
 
