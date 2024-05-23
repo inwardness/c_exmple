@@ -43,3 +43,46 @@ int countchar(char string[], int lim)
     }
      return i;
 }
+
+/*   for (size_t j = 0; j < lim - 1 || line[j] == EOF; j++)
+   {
+       line[i] = exchange[j];
+
+       if (line[i] == ' ' || line[i] == '\t')
+       {
+           ++spaceC;
+           if (line[i] == '\t')
+           {
+               exchange[j] = ' ';
+           }
+           if (spaceC == 1)
+           {
+               line[i] = exchange[j];
+           }
+           else if (spaceC > 1)
+           {
+               --i;
+           }
+       }
+       else if (line[i] == '\n')
+       {
+           ++nL;
+           if (nL == 1)
+           {
+               line[i] = exchange[j];
+           }
+           else if (nL > 1)
+           {
+               --i;
+           }
+       }
+       else
+       {
+           nL = 0;
+           spaceC = 0;
+       }
+   }
+}
+return 0;
+}
+*/
