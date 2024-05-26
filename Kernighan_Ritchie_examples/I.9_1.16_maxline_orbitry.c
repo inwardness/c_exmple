@@ -23,7 +23,7 @@ int main()
 	max = f1getline(lenInStrings, SYMINSTRING); 							// assigned maxline first inputs string
 	chrs1 = fchars(lenInStrings, max);										// counting chars in first string
 	copy(FirstMaxString, lenInStrings);										// copy string to FirstMaxString output
-	printf("symbols in string - %d; chars in string - %d;\n\n",max,chrs1);
+	printf("string length - %d; chars in string - %d;\n\n",max,chrs1);
 	fclear(lenInStrings,max);
 	while ((len = f1getline(lenInStrings, SYMINSTRING)) > 0) 				// while chars in string does not equal 0
 	{
@@ -47,7 +47,7 @@ int main()
 	}
 	printf("\ncerrent arbitry string maximum length and maximum chars in length:\n%s\n", FirstMaxString);
 
-	printf("symbols in cerrent string - %d; chars in cerrent string - %d;\n\n", max, chrs2);
+	printf("string length - %d; chars in cerrent string - %d;\n\n", max, chrs2);
 
 	return 0;
 }
