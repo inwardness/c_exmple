@@ -114,7 +114,7 @@ int main(void)
         printf("%d ", message[i]);
     } */
 
-    
+/*     
 {
     const int r1 = 3, c1r2=2, c2=1;
     int matrix1[3][2] = {{1, 2},{3, 4},{5, 6}};
@@ -151,6 +151,6 @@ int main(void)
         printf("\n");
     }
 }
-
+ */
     return 0;
 }
