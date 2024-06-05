@@ -1,5 +1,5 @@
 #include <stdio.h>
-#define SYMINRAW 40
+#define SYMINLINE 40
 #define LIMIT 10
 
 void printString(char line[], int lim);
@@ -13,11 +13,10 @@ int main()
     int len = 0;
     clearString(line, SYMINLINE);
 
-    while ((len = f1getline(line, SYMINLINE)) > 0)
-    
-        if (len > LIMITSTRING)
+    while ((len = f1getline(line, SYMINLINE)) > 1)
+    {
+        if (len > LIMIT)
         {
-            // retrievLine(line,SYMINRAW);
 
             revers(line, SYMINLINE);
 
@@ -35,19 +34,19 @@ int main()
     return 0;
 }
 
-int fgetline(char line[], int lim)
+int f1getline(char line[], int lim)
 {
     char c;
     int i;
-    for (i = 0; i < lim && (c = getchar()) != '\n' && c != EOF; i++)
-    {
+    for (i = 0; i < lim -1 && (c = getchar()) != '\n' && c != EOF; i++)
+    
         line[i] = c;
         if (line[i] == '\n')
         {
             line[i] = c;
             ++i;
         }
-    }
+    line[i] = '\0'; 
     return i;
 }
 
