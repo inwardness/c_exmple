@@ -68,9 +68,9 @@ int f1getline(char line[], int lim)
 
 void fclearStrings(char StringsMassive[COLUMNS][SYMINLINE])
 {
-    for (__int32_t i = 0; i < COLUMNS - 1; ++i)
+    for (int i = 0; i < COLUMNS - 1; ++i)
     {
-        for (__int32_t j = 0; j < SYMINLINE - 1; j++)
+        for (int j = 0; j < SYMINLINE - 1; j++)
         {
             StringsMassive[i][j] = 0;
         }
@@ -79,9 +79,9 @@ void fclearStrings(char StringsMassive[COLUMNS][SYMINLINE])
 
 void fprint(char StringsMassive[COLUMNS][SYMINLINE])
 {
-    for (__int32_t i = 0; i < COLUMNS - 1; i++)
+    for (int i = 0; i < COLUMNS - 1; i++)
     {
-        for (__int32_t j = 0; j < SYMINLINE - 1; j++)
+        for (int j = 0; j < SYMINLINE - 1; j++)
         {
             printf("%c", StringsMassive[i][j]);
         }
