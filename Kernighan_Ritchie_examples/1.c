@@ -18,22 +18,22 @@ int main()
 	
 
 	printf("MHz\tInches\t\tmm\n");
-	printf("144\t 48-1/8\"\t %f\n", l1 = 48*inch+mm8);
-	printf("146\t 47-1/4\"\t %f\n", l1 = 47*inch+mm4);
-	printf("148\t 46-3/8\"\t %f\n", l1 = 46*inch+mm3_4);
-	printf("150\t 45-1/2\"\t %f\n", l1 = 42*inch+mm2);
-	printf("152\t 44-7/8\"\t %f\n", l1 = 44*inch+mm7_8);
-	printf("154\t 43-3/4\"\t %f\n", l1 = 43*inch+mm3_4);
-	printf("156\t 42-7/8\"\t %f\n", l1 = 42*inch+mm7_8);
-	printf("158\t 42-1/8\"\t %f\n", l1 = 42*inch+mm8);
-	printf("160\t 41-1/4\"\t %f\n", l1 = 41*inch+mm4);
-	printf("162\t 40-1/2\"\t %f\n", l1 = 40*inch+mm2);
-	printf("164\t 39-1/2\"\t %f\n", l1 = 39*inch+mm2);
-	printf("166\t 38-3/4\"\t %f\n", l1 = 39*inch+mm3_4);
-	printf("168\t 38\"\t\t %f\n", l1 = 38*inch);
-	printf("170\t 37-1/8\"\t %f\n", l1 = 37*inch+mm8);
-	printf("172\t 36-3/8\"\t %f\n", l1 = 36*inch+mm3_8);
-	printf("174\t 35-7/8\"\t %f\n", l1 = 35*inch+mm7_8);
+	printf("144\t 48-1/8\"\t %f\n", l1 = 48.0*inch+mm8);
+	printf("146\t 47-1/4\"\t %f\n", l1 = 47.0*inch+mm4);
+	printf("148\t 46-3/8\"\t %f\n", l1 = 46.0*inch+mm3_4);
+	printf("150\t 45-1/2\"\t %f\n", l1 = 42.0*inch+mm2);
+	printf("152\t 44-7/8\"\t %f\n", l1 = 44.0*inch+mm7_8);
+	printf("154\t 43-3/4\"\t %f\n", l1 = 43.0*inch+mm3_4);
+	printf("156\t 42-7/8\"\t %f\n", l1 = 42.0*inch+mm7_8);
+	printf("158\t 42-1/8\"\t %f\n", l1 = 42.0*inch+mm8);
+	printf("160\t 41-1/4\"\t %f\n", l1 = 41.0*inch+mm4);
+	printf("162\t 40-1/2\"\t %f\n", l1 = 40.0*inch+mm2);
+	printf("164\t 39-1/2\"\t %f\n", l1 = 39.0*inch+mm2);
+	printf("166\t 38-3/4\"\t %f\n", l1 = 39.0*inch+mm3_4);
+	printf("168\t 38\"\t\t %f\n", l1 = 38.0*inch);
+	printf("170\t 37-1/8\"\t %f\n", l1 = 37.0*inch+mm8);
+	printf("172\t 36-3/8\"\t %f\n", l1 = 36.0*inch+mm3_8);
+	printf("174\t 35-7/8\"\t %f\n", l1 = 35.0*inch+mm7_8);
 	while (frequency!=EOF)
 	{
 		puts("Enter a value of frequency to compute a length rod:[xxx]MHz");
@@ -53,5 +53,5 @@ int main()
 		printf("7/8_waveLength = %f [m] == %f[mm]\n",_7_8_waveLength = 7.0 * (waveLength/8.0),_7_8_waveLength = 7.0 * (waveLength/8.0) * 1000);
 	}
 	
-	 
+	
 }

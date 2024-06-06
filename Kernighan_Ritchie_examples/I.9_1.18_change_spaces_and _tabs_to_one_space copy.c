@@ -4,13 +4,13 @@
 #define IMAXLINE 100
 #define LIMIT 10
 
-int fgetline(char line[], int lim);
+int f1getline(char line[], int lim);
 void revers(char line[], int lim);
 
 int main()
 {
     char c;
-    char line[IMAXLINE];
+    char line[SYMINLINE];
     int len = 0;
      while ((len = (fgetline(line,IMAXLINE))) > 0)
      {
@@ -36,7 +36,7 @@ revers(line,IMAXLINE);
 return 0;
 }
 
-int fgetline(char line[], int lim)
+int f1getline(char line[], int lim)
 {
     char c;
     int i;
