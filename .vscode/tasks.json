@@ -1,0 +1,21 @@
+{
+"tasks": [
+    {
+        "type": "cppbuild",
+        "label": "C/C++: gcc build active file",
+        "command": "c:\\MinGW\\bin\\gcc.exe",
+        "args": [
+            "-fdiagnostics-color=always",
+            "-g",
+            "${file}",
+            "-o",
+            "${fileDirname}/${fileBasenameNoExtension}.exe"
+        ],
+        "options": {
+            "cwd": "${fileDirname}"
+        }
+    }
+        
+    ],
+    "version": "2.0.0"
+}

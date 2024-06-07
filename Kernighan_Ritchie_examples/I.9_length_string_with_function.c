@@ -2,7 +2,7 @@
 #define MAXLINE 1000
 
 int copy(char to[], char from[]);
-int fgetline(char line[], int);
+int f1getline(char line[], int);
 
 int main()
 {
@@ -12,7 +12,7 @@ int main()
 	char line[MAXLINE];
 	char longest[MAXLINE];
 
-	while ((len = fgetline(line, MAXLINE)) > 0) // symbols count from input string to variable while string doesn't equal zero
+	while ((len = f1getline(line, MAXLINE)) > 0) // symbols count from input string to variable while string doesn't equal zero
 	{
 		if (len > max)
 		{
@@ -24,7 +24,7 @@ int main()
 	}
 	return 0;
 }
-int fgetline(char s[], int lim)
+int f1getline(char s[], int lim)
 {
 	int c, i;
 	for (i = 0; i < lim - 1 && (c = getchar()) != EOF && c != '\n'; ++i)

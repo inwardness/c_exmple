@@ -1,7 +1,7 @@
 #include "stdio.h"
 const int MAXLINE = 1000;
 
-int fgetline(char line[], int MAXLINE);				//function for count symbols
+int f1getline(char line[], int MAXLINE);				//function for count symbols
 int copy(char to[], char from[]);					//copy current massive in line to "logest"
 
 int main()
@@ -12,7 +12,7 @@ int main()
 	char line[MAXLINE];								//massive for input line
 	char longest[MAXLINE];							//massive for longest string
 
-	while ((len = fgetline(line, MAXLINE)) > 0)		//cycle compire input with end-of-file = \0
+	while ((len = f1getline(line, MAXLINE)) > 0)		//cycle compire input with end-of-file = \0
 	{
 		if (len > max)								//if counter len bigger then installed max
 		{
@@ -28,7 +28,7 @@ int main()
 	return 0;
 }
 
-int fgetline(char s[], int lim)						//counting symbols in line from two parameters: string and limit of the line
+int f1getline(char s[], int lim)						//counting symbols in line from two parameters: string and limit of the line
 {
 
 	int c, i;
