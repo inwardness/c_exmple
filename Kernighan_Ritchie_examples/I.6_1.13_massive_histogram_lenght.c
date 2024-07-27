@@ -1,42 +1,45 @@
 #include <stdio.h>
-#define N 15
+/*программа печатающая вертикальную гистограмму вводимых символов в словах*/
+#define IN 1 /*внутри слова*/
+#define OUT 0/*вне слова*/
+#define MAXWORDS 80 /*максимальное количество слов в нашей гистограмме 80*/
+ 
 int main()
 {
-  int length, neww, i;    /*length -counter of symbol in word, neww - counter new word,i-index array*/
-  char c;                 /*c-input charcter*/
-  int w[N];               /*w[N]-massive */
-  length = neww = 0;      /*inicialization of variables*/
-  for (i = 0; i < N; ++i) /*inicialization massive to zero*/
-    w[i] = 0;
+int i, j, c, state; /*i-индекс массива слов, j-количество символов в слове, с - вводимый символ,
+                      state - состояние переменной с ( IN - внутри слова, OUT - вне слова) */
+int lenword [MAXWORDS], nextword, maxlen;/*счетчик массива слов,следующее слово,самое
+                                           длинное слово*/
+nextword = maxlen = 0;
+for (i = 0; i < MAXWORDS; ++i)/*инициализируем цикл*/
+    lenword [i] = 0;
+state = OUT;
+ 
+while ((c = getchar())!= EOF && nextword < MAXWORDS) {
+    if ( c == ' ' || c == '\n' || c == '\t'){    /*1.если сначала вводится символ-разделитель,то */
+        if (state == IN){                        /*программа ничего не делает,т.к. не выполняется*/
+            if (lenword [nextword] > maxlen)     /*условие state == IN;( у нас state == OUT)*/
+                    maxlen = lenword [nextword]; /*2.если вводится любой другой символ,программа */
+        ++nextword; state = OUT; }               /*переходит к else, state становится IN и включа*/
+    }                                            /*ется счетчик lenword [0],т.е. счетчик первого */
+    else {                                       /*слова массива*/
+        if (state == OUT)                        /*3.при появлении на вводе символа-разделителя */
+            state = IN;                          /*(условие state == IN на этот раз выполнено) */
+            ++lenword [nextword];                /*проверяется условие lenword [0] > maxlen, оно */
+            }    /*истинно и тогда maxlen = lenword [0]. 4.переменная nextword увеличивается на 1 */
+          }      /* т.е. счетчик символов приобретает индекс 1-lenword[1],state присваивается OUT */
+for (j = maxlen; j > 0; --j){    /* Печатание гистограммы. 1.Переменной j присваисается значение */
+    for(i = 0; i < nextword; ++i){ /*самого длинного слова из введенных,т.е. maxlen,это будет */
+        if (lenword[i] >= j)       /*высота нашей гистограммы. 2. Цикл внутри цикла for печатает */
+            putchar('#');          /*строку начиная со счетчика первого слова lenword[0], если */
+        else                       /*это не самое длинное слово то печатается пробел,цикл перехо-*/
+                putchar('-');      /*дит к следующему слову (++i) и каретка смещается на одно поле*/
+                }                  /*вправо.Когда цикл доходит до самого длинного слова,то печа-*/
+     putchar('\n') ;               /*тает #. 3.Когда "внутренний" цикл доходит до последнего слова*/
+}                                  /*условие i < nextword перестает выполняться и цикл завершает */
+                                   /*свою работу и программа переходит к функции putchar('\n'),*/
+        return 0;                  /*т.е. каретка принтера переходит на новую строку. 4.выполня- */
+}                                  /*ется --j и запускается следующий цикл "наружного" цикла for. */
+                                   /*5. когда j дойдет до нуля,условие j>0 перестанет выполняться */
+                                   /* и цикл прекратит работу.   Программа завершена.  */
 
-  while ((c = getchar()) != EOF)
-  { 
-    // array filling
-    if (c != ' ' && c != '\n')
-    {
-      ++length; // start counter to word length by condition
-    }
-    else if (length > 0)
-    {
-      ++neww;                 // starts counter word position and stop counter length
-      for (i = 0; i < N; ++i) // inicialized array to write length word
-        if (w[i] == 0)
-        {                // writing in first element by the value zero
-          w[i] = length; // take  value to element of massive
-          //++i;           // going to the next element
-          length = 0;
-        } // drop counter
-    }
-  }
-
-  for (i = 0; i < N; ++i) // inicialized array for printing signs by the value of  element massive
-    while (w[i] > 0)
-    {                 // here we start to find elements
-      --w[i];         // while we decremeting values of massive
-      printf("-");    // printing symbol
-      if (w[i] == 0)  // is there we check if the value of elements are equal zero
-        printf("\n"); // if yes,we decrementing next element and getting him on the new line
-    }
-
-  return 0;
-}

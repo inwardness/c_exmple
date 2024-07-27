@@ -1,9 +1,16 @@
 // first program C with using localization header for russian language output
+//for switching utf-8 for russia language in console: COntrol Panel/Language/Region standarts/Addition/Choose sysytem language -> use unicode UTF_8
+	
 #include <stdio.h>
 #include <locale.h>
-int main()
+
+ 
+int main () 
 {
-	setlocale(LC_TIME,"ru_RUS.utf8"); /*first out program*/
-	printf("i'm try to find mnemonic code 0x21\n");
-	printf("тестирую функцию локалей для форматированного вывода русского языка\n");
+    
+	setlocale(LC_ALL,0);
+        printf("Приведт\n ") ;
+    
+    return 0 ;
+    
 }
