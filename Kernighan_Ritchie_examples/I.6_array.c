@@ -1,4 +1,5 @@
-#include<stdio.h>
+#include <stdio.h>
+#include <stdlib.h>
 //counter of symbol,symbol-devider and otheres symbols
 	int main(){
 		int c,i,nwhite,nother;
@@ -13,6 +14,12 @@
 				++nwhite;
 			else
 				++nother;
+		printf("\t");
+		for(i=0;i<10;++i)
+		{
+		printf("%d",i);
+		}
+		printf("\n");
 		printf("numbers=");
 		for(i=0;i<10;++i)
 			printf("%d",ndigit[i]);
