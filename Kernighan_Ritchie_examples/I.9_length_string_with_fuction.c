@@ -1,16 +1,16 @@
 #include "stdio.h"
-const int MAXLINE = 1000;
+const int MAXLINE = 1000;							//maximum string length
 
-int f1getline(char line[], int MAXLINE);				//function for count symbols
+int f1getline(char line[], int MAXLINE);			//function for count symbols
 int copy(char to[], char from[]);					//copy current massive in line to "logest"
 
 int main()
 {
 
-	int len;										//current variable of length
-	int max = 0;									//value of maximum length in input string
-	char line[MAXLINE];								//massive for input line
-	char longest[MAXLINE];							//massive for longest string
+	int len;										//current string length
+	int max = 0;									//maximum string length from inputs strings
+	char line[MAXLINE];								//current string
+	char longest[MAXLINE];							//longest string
 
 	while ((len = f1getline(line, MAXLINE)) > 0)		//cycle compire input with end-of-file = \0
 	{
@@ -28,12 +28,10 @@ int main()
 	return 0;
 }
 
-int f1getline(char s[], int lim)						//counting symbols in line from two parameters: string and limit of the line
+int f1getline(char s[], int lim)										//counting symbols in line till the input symbol equals EOF
 {
-
 	int c, i;
-
-	for (i = 0; i < lim - 1 && (c = getchar()) != EOF && c != '\n'; ++i)//assign element of the massive symbol if it meets condition
+	for (i = 0; i < lim - 1 && (c = getchar()) != EOF && c != '\n'; ++i)//assign element massive inputs symbol if its 
 		s[i] = c;
 	if (c == '\n')
 	{
