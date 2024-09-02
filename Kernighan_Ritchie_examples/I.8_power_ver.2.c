@@ -8,9 +8,13 @@ int power(int m,int n);
 
 int main()
 {
-	int i;
-	for (i=0;i<10;++i)
-		printf("%d %d %d\n",i,power(2,i),power(-3,i));
+    int a;
+    int b;
+    printf("enter nambers a and b:\n");
+	scanf("%d",&a);
+    scanf("%d",&b);
+    
+    printf("result of function power\n  (a^b)::%d^%d = %d \n",a,b,power(a,b));
 	return 0;
 }
 

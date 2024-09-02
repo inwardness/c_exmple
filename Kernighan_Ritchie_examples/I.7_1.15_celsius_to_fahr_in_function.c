@@ -5,11 +5,15 @@ float fahrenheit(int celsius);
 
 int main()
 {
+	printf("Enter Ctrl + C for exit\n");
 	int celsius;
+	while (celsius !=EOF)
+	{
 	printf("enter celsius value to interpeted in fahrenheit:");
 	scanf("%d",&celsius);
 		
-	printf("%f",fahrenheit(celsius));
+	printf("fahrenheit value=%.2f\n",fahrenheit(celsius));
+	}
 	return 0;
 }
 
