@@ -33,6 +33,7 @@ int main()
 
 			if (chrs2 > chrs1)
 			{
+				max = len;
 				copy(FirstMaxString, lenInStrings);
 			}
 		}
