@@ -2,55 +2,31 @@
 
 #include <stdio.h>
 #define COLUMNS 5       // columns in two demensional array
-#define SYMINLINE 40     // symbol in  string
+#define SYMINLINE 40    // symbol in  string
 #define LIMITSTRINGS 10 // minimum of definition length string to write
 
 int f1getline(char line[], int lim);                         // function to get length cerrent length
-void copy(char from[], char to[]);                          // function of copy string do two demension arrays
-void fclearStrings(char StringsMassive[COLUMNS][SYMINLINE]); // function in start of program for clear two demensional array
+void copy(char from[], char to[]);                           // function of copy string do two demension arrays
+void fclearStrings(char StringsMassive[SYMINLINE]); // function in start of program for clear two demensional array
 void fprint(char StringsMassive[COLUMNS][SYMINLINE]);        // function for print two demenstional array
 
 int main()
 {
-    int len, i, j;                          // length of input string and elements of array
-    int count = 0;                          // counter  not writen string
-    char line[SYMINLINE];                    // input string 
-    char StringsMassive[COLUMNS][SYMINLINE]; // two demnesional array for founded strings
-
-    for (i = 0; i < STM-1; ++i)
+    int len, i, j;                           // length of input string and elements of array
+    int count = 0;                           // counter  not writen string
+    char line[SYMINLINE];                    // input string
+   
+    while ((len = f1getline(line, SYMINLINE)) > 0)
     {
-        for (j = 0; j < IMAXLINE-1; j++)
+        if (len > LIMITSTRINGS)
         {
-            ML[i][j] = 0;
+           printf("string with more then 10 char: %s",line);
+            fclearStrings(line);
         }
+        else
+            printf("\r");
+    
     }
-    while ((len = fgetline(line, IMAXLINE)) > 0)
-    {
-        if (len > LIMIT)
-        {
-            for (i = 0; i < STM-1; ++i)
-            {
-                if (i == count)
-                    for (j = 0; j < IMAXLINE-1; ++j)
-                    {
-                       StringsMassive[count][j] = line[j];
-                    }
-            }
-            ++count;
-        }
-    }
-    for (i = 0; i < COLUMNS; i++)
-    {
-        for (j = 0; j < SYMINLINE; j++)
-        {
-            printf("%c", StringsMassive[i][j]);
-        }
-    }
-
-    putchar('\n');
-    printf("Strings with more then 10 symbols:\n");
-    fprint(StringsMassive);
-    putchar('\n');
     return 0;
 }
 
@@ -65,36 +41,19 @@ int f1getline(char line[], int lim)
         line[i] = c;
         ++i;
     }
+    line[i] = '\0';
     return i;
 }
 
-void fclearStrings(char StringsMassive[COLUMNS][SYMINLINE])
+void fclearStrings(char StringsMassive[SYMINLINE])
 {
-    for (int i = 0; i < COLUMNS - 1; ++i)
+    int i;
+    for (int i = 0; i < SYMINLINE - 1; ++i)
     {
-        for (int j = 0; j < SYMINLINE - 1; j++)
-        {
-            StringsMassive[i][j] = 0;
-        }
+      
+            StringsMassive[i] = 0;
+        
     }
+   
 }
 
-void fprint(char StringsMassive[COLUMNS][SYMINLINE])
-{
-    for (int i = 0; i < COLUMNS - 1; i++)
-    {
-        for (int j = 0; j < SYMINLINE - 1; j++)
-        {
-            printf("%c", StringsMassive[i][j]);
-        }
-    }
-}
-
-void copy(char from[], char to[])
-{
-    int i = 0;
-
-    while ((from[i] = to[i]) != '\0')
-
-        i++;
-}
