@@ -1,52 +1,47 @@
-/* 
- * Exercise 1-18
- * Write a program to remove trailing blanks and tabs from each line of input, 
- * and to delete entirely blank lines.
- */
-
 #include <stdio.h>
-
-#define MAXLINE 1000
-
-int get_line(char line[], int maxline);
-void trim(char s[], int length);
-
+/* Exercise 1-18. Write a program to remove trailing blanks and tabs
+ * from each line of input, and to delete entirely blank lines. */
+#define MAX 70
+int get_line(char line[]);
 int main() {
-    int len,i;
-    char line[MAXLINE];
-
-    while ((len = get_line(line, MAXLINE)) > 0) {
-      printf("%d",len);
-        trim(line, len);
-        if (line[0] != '\n')
-            for (size_t i = 0; i < line[i]; i++)
-            {
-               len = i;
-            }
-            
-            printf("%s", line);
-            printf("%d",len);
-    }
-
-    return 0;
+  int len; /* current line length */
+  char line[MAX];
+  while ((len = get_line(line)) > -1)
+    if (len != 0)
+      printf("%s", line);
+  return 0;
 }
 
-int get_line(char s[], int lim) {
-    int c, i;
-
-    for (i = 0; i < lim - 1 && (c = getchar()) != EOF && c != '\n'; ++i)
-        s[i] = c;
-    if (c == '\n') s[i++] = c;
+/* read a line into s, return length */
+int get_line(char s[]) {
+  int c, i = 0;
+  char previous = 'A'; /* some default value */
+  /* copy each character into the corresponding `s`'s slot */
+  for (i; i<MAX && ((c = getchar()) != EOF) && (c != '\n'); ++i) {
+    /* do not add repeating blanks and tabs */
+    if ((previous == ' ' || previous == '\t') && (c == ' ' || c == '\t')) {
+      --i;
+    } else {
+      s[i] = c;
+      previous = c;
+    }
+  }
+  /* remove trailing tabs and spaces */
+  if (s[i - 1] == '\t' || s[i - 1] == ' ') {
+    s[i - 1] = '\n';
     s[i] = '\0';
     return i;
-}
-
-void trim(char line[], int length) {
-    int i;
-
-    for (i = length - 2; i >= 0 && (line[i] == ' ' || line[i] == '\t'); i--)
-        ;
-    line[++i] = '\n';
-    line[++i] = '\0';
-
+  }
+  /* File is exhausted */
+  if (c == EOF)
+    return -1;
+  /* an empty line */
+  else if (c == '\n' && i == 0)
+    return i;
+  else if (c == '\n') {
+    s[i] = c;
+  }
+  /* finish the string - an array of characters in C */
+  s[++i] = '\0';
+  return i;
 }
