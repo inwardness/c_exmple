@@ -8,7 +8,7 @@ int main(void){
 	while ((c=getchar())!=EOF){
 		if (c!=' '&& c!='\t'){
 				wd=IN;
-				
+				putchar(c);
 				}else{
 		      		 wd=OUT;
 		      		   	putchar('\n');

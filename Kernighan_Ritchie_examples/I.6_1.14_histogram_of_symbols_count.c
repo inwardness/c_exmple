@@ -36,9 +36,9 @@ int main()
     printf("%c ",symbol[i]);
     }
   printf("\n");
-  for (int i = 0; i < N; i++)
+  for (int j = 0; j < N-4; j++)
   {
-  printf("%d ",count_sym[i]);
+  printf("%d ",count_sym[j]);
     }
   putchar('\n');
 

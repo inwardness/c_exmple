@@ -23,14 +23,19 @@ int main()
 
     while ((len = f1getline(line, SYMINLINE)) > 0) // cycle work while string not equal 0
     {
-
-        if (len > LIMITSTRINGS) // value of symbol in string meets the condition
+        for (j = 0; j < IMAXLINE-1; j++)
         {
-
-            for (i = 0; i < COLUMNS; ++i)
+            ML[i][j] = 0;
+        }
+    }
+    while ((len = fgetline(line, IMAXLINE)) > 0)
+    {
+        if (len > LIMIT)
+        {
+            for (i = 0; i < STM-1; ++i)
             {
                 if (i == count)
-                    for (j = 0; j < SYMINLINE; ++j)
+                    for (j = 0; j < IMAXLINE-1; ++j)
                     {
                        StringsMassive[count][j] = line[j];
                     }
