@@ -42,7 +42,7 @@ int main()
                 }
             }
         }
-        else (len == '\n');
+        else if(len == '\n')
         {
             continue;
         }  
