@@ -88,6 +88,7 @@ int gtstring(char line[],int lim)
             line[i] = c;
             line[++i] = EOF;
             ++i;
+            
         }
          else
             count = 0;
