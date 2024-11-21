@@ -1,9 +1,11 @@
 #include <stdio.h>
-#include <conio.h>
+//#include <conio.h>
  
 int main() {
     int k;
-    while((k=getch()) != 13) {
+    printf("entered a strings:\n");
+    printf("for exit press: Ctrl+D\n");
+    while((k=getchar()) != EOF) {
         if(k == 8) {
             putchar('\\'); putchar('b');
         } else if(k == 9) {

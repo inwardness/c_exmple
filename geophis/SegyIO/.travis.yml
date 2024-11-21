@@ -1,0 +1,62 @@
+language: generic
+
+env:
+  - BUILD_TYPE=RELEASE; PYTHON=2.7;
+  - BUILD_TYPE=RELEASE; PYTHON=3.5;
+  - BUILD_TYPE=DEBUG; PYTHON=2.7;
+  - BUILD_TYPE=DEBUG; PYTHON=3.5;
+
+os:
+  - linux
+  - osx
+
+compiler:
+  - gcc
+  - clang
+
+matrix:
+    exclude:
+        - os: osx
+          compiler: gcc
+        - os: linux
+          compiler: clang
+
+addons:
+    apt:
+      packages:
+        - valgrind
+
+install:
+  # Valgrind is experimental(ish) on MacOS with false positives on among others printf
+  #- if [[ "$TRAVIS_OS_NAME" == "osx" && "$BUILD_TYPE" == "DEBUG" ]]; then
+  #    brew update;
+  #    brew install --HEAD valgrind;
+  #  fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
+      export CONDA_OS=MacOSX;
+    else
+      export CONDA_OS=Linux;
+    fi
+  - if [[ "$PYTHON" == "2.7" ]]; then
+        wget https://repo.continuum.io/miniconda/Miniconda2-latest-${CONDA_OS}-x86_64.sh -O miniconda.sh;
+    else
+        wget https://repo.continuum.io/miniconda/Miniconda3-latest-${CONDA_OS}-x86_64.sh -O miniconda.sh;
+    fi
+  - bash miniconda.sh -b -p $HOME/miniconda
+  - export PATH="$HOME/miniconda/bin:$PATH"
+  - hash -r
+  - conda config --set always_yes yes --set changeps1 no
+  - conda update -q conda
+  - conda info -a
+
+  - conda install numpy cmake
+
+before_script:
+  - enabled="-DBUILD_PYTHON=OFF -DBUILD_MEX=OFF"
+  - if [[ -n "${PYTHON+1}" ]]; then enabled="$enabled -DBUILD_PYTHON=ON"; fi
+  - cmake --version
+  - mkdir build
+  - pushd build
+  - cmake -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DBUILD_SHARED_LIBS=ON $enabled  ..
+script:
+  - make && ctest --output-on-failure

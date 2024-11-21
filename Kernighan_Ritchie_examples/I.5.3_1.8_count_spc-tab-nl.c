@@ -8,6 +8,8 @@ int main()
     int tab=0;
     int spc=0;
     int c;
+    printf("Entered a strings:\n");
+    printf("for exit press: Ctrl+D\n");
     while ((c = getchar()) != EOF)
     {
         if (c == '\n')

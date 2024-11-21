@@ -10,7 +10,9 @@ void fclear(char lenInString[],int max);									// clear stringgit addc.
 int main()
 {
 	int len = 0;   															// symbols in gets string
-	int max = 0;   															// value of chars in first basic string as a arbitrary
+	int max = 0;
+	int max1 = 0;
+	int chrsinfirstsreing = 0;   															// value of chars in first basic string as a arbitrary
 	int chrs1 = 0; 															// spaces in previuos string with max chars
 	int chrs2 = 0;
 
@@ -20,10 +22,13 @@ int main()
 
 	printf("print arbitry string:\n");
 
-	max = f1getline(lenInStrings, SYMINSTRING); 							// assigned maxline first inputs string
-	chrs1 = fchars(lenInStrings, max);										// counting chars in first string
-	copy(FirstMaxString, lenInStrings);										// copy string to FirstMaxString output
-	printf("string length - %d; chars in string - %d;\n\n",max,chrs1);
+	max = f1getline(lenInStrings, SYMINSTRING); 
+	max1 = max;																// assigned maxline first inputs string
+	chrs1 = fchars(lenInStrings, max);
+	chrsinfirstsreing = chrs1;										// counting chars in first string
+	copy(FirstMaxString, lenInStrings);
+	copy(SecondMaxString, lenInStrings);										// copy string to FirstMaxString output
+	printf("string length - %d; chars in arbitry string - %d;\n\n",max1,chrsinfirstsreing);
 	fclear(lenInStrings,max);
 	while ((len = f1getline(lenInStrings, SYMINSTRING)) > 0) 				// while chars in string does not equal 0
 	{
@@ -34,21 +39,23 @@ int main()
 			if (chrs2 > chrs1)
 			{
 				max = len;
+				chrs1 = chrs2;
 				copy(FirstMaxString, lenInStrings);
 			}
 		}
 		else if (len == max) 												// if value of chars condition equal max
 		{
-			chrs2 = fchars(lenInStrings, max); 								// get value chars in string equal max
+			chrs2 = fchars(lenInStrings, len); 								// get value chars in string equal max
 
-			if (chrs2 > chrs1) 												// if chars in second string more less then first string
-
-				copy(FirstMaxString, lenInStrings); 						// copy getting string in FirstMaxString
+			if (chrs2 > chrs1){ 											// if chars in second string more less then first string
+				chrs1 = chrs2;
+				copy(FirstMaxString, lenInStrings); 
+				}															// copy getting string in FirstMaxString
 		}
 	}
-	printf("\ncerrent arbitry string maximum length and maximum chars in length:\n%s\n", FirstMaxString);
+	printf("\ncerrent arbitry string:	%scurrent arbitry string length:%d----first string arbitry length:%d\n", FirstMaxString,max,max1);
 
-	printf("string length - %d; chars in cerrent string - %d;\n\n", max, chrs2);
+	printf("sum of chars in current arbitry string:%d----sum of chars in first arbitry string:%d;\n\n",chrs1,chrsinfirstsreing);
 
 	return 0;
 }
@@ -71,12 +78,12 @@ void fclear(char lenInStrings[],int max)
 	}
 	
 }
-int f1getline(char lenInStrings[], int maxline)
+int f1getline(char lenInStrings[], int max)
 {
 	char c;
 	int i;
 
-	for (i = 0; i < maxline - 1 && (c = getchar()) != EOF && c != '\n'; ++i)
+	for (i = 0; i < max - 1 && (c = getchar()) != EOF && c != '\n'; ++i)
 		lenInStrings[i] = c;
 	if (c == '\n')
 	{

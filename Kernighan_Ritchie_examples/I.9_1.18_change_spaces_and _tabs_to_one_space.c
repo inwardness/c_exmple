@@ -1,48 +1,109 @@
-/*Write  a  program  to  remove  trailing  blanks  and  tabs  from  each  line  of  input,
-and to delete entirely blank lines.*/
+#define MAX_ROWS 4
+#define MAX_COLS 50
 
 #include <stdio.h>
-#define MAX 70
-int get_line(char line[]);
-int main() {
-  int len; /* current line length */
-  char line[MAX];
-  while ((len = get_line(line)) > -1)
-    if (len != 0)
-      printf("%s", line);
-  return 0;
+
+// int gtstring(char line[],int lim);
+void cstring(char line[], int lim);
+
+int gtstring(char line[],int lim);
+
+int main()
+{
+    
+    char line[MAX_COLS];
+    char massivelines[MAX_ROWS][MAX_COLS];
+
+    int len = 0;
+    int c, i, j = 0;
+    int count = -1;
+
+    // reset to zero two-measure massive
+    for (i = 0; i < MAX_ROWS; i++)
+    {
+        for (j = 0; j < MAX_COLS; j++)
+        {
+            massivelines[i][j] = 0;
+        }
+    }
+    printf("print string with tabs spaces or empty string:\n");
+    while ((len = gtstring(line, MAX_COLS)) > 0)
+    {
+        if (len > 1)
+        {
+            ++count;
+            for (i = 0; i < MAX_ROWS-1; i++)
+            {   
+                if (i == count)
+                {                                           
+                    for (j = 0; j < len; j++)
+                    massivelines[count][j] = line[j];
+                    
+                }
+            }
+        }
+        else (len == '\n');
+        {
+            continue;
+        }  
+    }
+for ( i = 0; i < MAX_ROWS; i++)
+{
+    for ( j = 0; j < MAX_COLS; j++)
+    {
+        printf("%c",massivelines[i][j]);
+    }
+    printf("\n");
 }
 
-/* read a line into s, return length */
-int get_line(char s[]) {
-  int c, i = 0;
-  char previous = 'A'; /* some default value */
-  /* copy each character into the corresponding `s`'s slot */
-  for (i; i<MAX && ((c = getchar()) != EOF) && (c != '\n'); ++i) {
-    /* do not add repeating blanks and tabs */
-    if ((previous == ' ' || previous == '\t') && (c == ' ' || c == '\t')) {
-      --i;
-    } else {
-      s[i] = c;
-      previous = c;
+
+return 0;
+}
+
+int gtstring(char line[],int lim)
+{
+    int i, c;
+    char t = '\t';
+    char s = ' ';
+    int count = 0;
+
+    for (i = 0; i < lim && ((c = getchar()) != EOF) && (c != '\n'); i++)
+    {
+        if (c == t || c == s)
+        {
+            c = s;
+            ++count;
+            if (count == 1)
+            {
+                line[i] = c;
+            }
+            else if (count > 1)
+            {
+                --i;
+            }
+        }              
+       
+        else if (c == '\n')
+        {
+            line[i] = c;
+            line[++i] = EOF;
+            ++i;
+            
+        }
+         else
+            count = 0;
+            line[i] = c;
+        
     }
-  }
-  /* remove trailing tabs and spaces */
-  if (s[i - 1] == '\t' || s[i - 1] == ' ') {
-    s[i - 1] = '\n';
-    s[i] = '\0';
     return i;
-  }
-  /* File is exhausted */
-  if (c == EOF)
-    return -1;
-  /* an empty line */
-  else if (c == '\n' && i == 0)
-    return i;
-  else if (c == '\n') {
-    s[i] = c;
-  }
-  /* finish the string - an array of characters in C */
-  s[++i] = '\0';
-  return i;
+}
+
+void cstring(char line[], int lim)
+{
+    int i;
+    for (i = 0; i < lim ; i++)
+    {
+        line[i] = 0;
+    }
+    line[lim] = EOF;
 }
