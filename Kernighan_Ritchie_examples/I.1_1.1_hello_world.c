@@ -7,9 +7,10 @@
  
 int main () 
 {
-    
-	setlocale(LC_ALL,0);
-        printf("Приведт\n ") ;
+    char c = 0x20;
+	setlocale(LC_ALL,"Rus");
+        
+        printf("%d,%c,%x",c,c,c);
     
     return 0 ;
     
