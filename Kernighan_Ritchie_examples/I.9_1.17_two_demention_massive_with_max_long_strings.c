@@ -12,11 +12,16 @@ void fprint(char StringsMassive[COLUMNS][SYMINLINE]);        // function for pri
 
 int main()
 {
-    int len, i, j;                           // length of input string and elements of array
-    int count = 0;                           // counter  not writen string
-    char line[SYMINLINE];                    // input string
-   
-    while ((len = f1getline(line, SYMINLINE)) > 0)
+    int len, i, j;                          // length of input string and elements of array
+    int count = 0;                          // counter  not writen string
+    char line[SYMINLINE];                    // input string 
+    char StringsMassive[COLUMNS][SYMINLINE]; // two demnesional array for founded strings
+
+    fclearStrings(StringsMassive);
+    printf("this program print five lines longer then 10 chars.\n");
+    printf("Enter a string:\n");
+
+    while ((len = f1getline(line, SYMINLINE)) > 0) // cycle work while string not equal 0
     {
         if (len > LIMITSTRINGS)
         {
@@ -27,6 +32,25 @@ int main()
             printf("\r");
     
     }
+    while ((len = fgetline(line, IMAXLINE)) > 0)
+    {
+        if (len > LIMIT)
+        {
+            for (i = 0; i < STM-1; ++i)
+            {
+                if (i == count)
+                    for (j = 0; j < IMAXLINE-1; ++j)
+                    {
+                       StringsMassive[count][j] = line[j];
+                    }
+            }
+            ++count;
+        }
+    }
+    putchar('\n');
+    printf("Strings with more then 10 symbols:\n");
+    fprint(StringsMassive);
+    putchar('\n');
     return 0;
 }
 

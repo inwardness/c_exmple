@@ -1,0 +1,47 @@
+version: 1.0.{build}
+
+clone_depth: 1
+
+configuration:
+    - Debug
+    - Release
+
+os: Visual Studio 2015
+image: Visual Studio 2015
+
+platform:
+    - x86
+    - x64
+
+environment:
+    OFF: -DBUILD_PYTHON=OFF -DBUILD_MEX=OFF
+    matrix:
+        - PYTHON: C:\Python27
+          LANG: -DBUILD_PYTHON=ON
+        - PYTHON: C:\Python35
+          LANG: -DBUILD_PYTHON=ON
+
+matrix:
+    fast_finish: true
+
+init:
+    - INSTALL_DIR: C:\projects\segyio-install
+
+install:
+  - IF DEFINED PYTHON (IF "%platform%" == "x64" SET PYTHON=%PYTHON%-x64)
+  - IF DEFINED PYTHON %PYTHON%\python -m pip install --user numpy
+
+before_build:
+    - IF DEFINED PYTHON SET LANG=%LANG% -DPYTHON_EXECUTABLE=%PYTHON%\python.exe
+
+build_script:
+    - cmake --version
+    - IF "%platform%" == "x64" set W64="-GVisual Studio 14 2015 Win64"
+    - mkdir build
+    - pushd build
+    - cmake C:\projects\SegyIO %W64% %OFF% %LANG% -DBUILD_SHARED_LIBS=ON -DCMAKE_BUILD_TYPE=%configuration% -DCMAKE_INSTALL_PREFIX=%INSTALL_DIR%
+    - cmake --build . --config %configuration% --target install
+
+test_script:
+    - set PATH=%INSTALL_DIR%\bin;%PATH%
+    - ctest -C %configuration% --output-on-failure
