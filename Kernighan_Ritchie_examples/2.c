@@ -1,6 +1,6 @@
-#define MAX_ROWS 4
-#define MAX_COLS 50
-#define EMPTY 0
+#define MAX_ROWS 6
+#define MAX_COLS 120
+#define EMPTY 0;
 #include <stdio.h>
 
 // int gtstring(char line[],int lim);
@@ -13,12 +13,13 @@ int main()
 
     char line[MAX_COLS];
     char massivelines[MAX_ROWS][MAX_COLS];
-    
+
     int len = 0;
-    int c, i, j = 0;
+    int i, j = 0;
     int count = -1;
 
     // reset to zero two-measure massive
+    cstring(line,MAX_COLS);
     for (i = 0; i < MAX_ROWS; i++)
     {
         for (j = 0; j < MAX_COLS; j++)
@@ -29,88 +30,86 @@ int main()
     printf("print string with tabs spaces or empty string:\n");
     while ((len = gtstring(line, MAX_COLS)) > 0)
     {
-        if (len > 1)
+        if (len > 2)
         {
-            for ( i = 0; i < len; i++)
-            {
-                if (line[i] == ' ' && line[i] == '\t' && line[i] == '\n')
-                {
-                    EMPTY == 1;
-                    continue;                  
-                }
-                else if (EMPTY != 0)
-                {
-                    ++count;
-                    for ( i = 0; i < MAX_ROWS; i++)
-                    {
-                        if(i==count)
-                        {
-                            for ( j = 0; j < len; j++)
-                            {
-                                massivelines[count][j] = line[i];
-                            }
-                        }
                     
-                    }
-                }
             
-            }
-        }
-    }
-        for (i = 0; i < MAX_ROWS; i++)
-        {
-            for (j = 0; j < MAX_COLS; j++)
+            
+                 ++count;
+            for ( i = 0; i < MAX_ROWS; i++)
             {
-                printf("%c", massivelines[i][j]);
+                if (i == count)
+                {
+                    for ( i = 0; i < len; i++)
+                    {
+                        massivelines[count][i] = line[i];
+                    }
+                    
+                }
+                
             }
-            printf("\n");
+            
         }
-
-        return 0;
+        else
+        continue;
+       
+        cstring(line,MAX_COLS);
+        
     }
-
-    int gtstring(char line[], int lim)
+    for (i = 0; i < MAX_ROWS; i++)
     {
-        int i, c;
-        char t = '\t';
-        char s = ' ';
-        int count = 0;
+        
+        printf("%s", massivelines[i]);
+        
+    }
 
-        for (i = 0; i < lim && ((c = getchar()) != EOF) && (c != '\n'); i++)
+    return 0;
+}
+
+int gtstring(char line[], int lim)
+{
+    int i, c;
+    char t = '\t';
+    char s = ' ';
+    int count = 0;
+
+    for (i = 0; i < lim && ((c = getchar())!= EOF); i++)
+    {
+        if (c == t || c == s)
         {
-            if (c == t || c == s)
-            {
-                c = s;
-                ++count;
-                if (count == 1)
-                {
-                    line[i] = c;
-                }
-                else if (count > 1)
-                {
-                    --i;
-                }
-            }
-
-            else if (c == '\n')
+            c = s;
+            ++count;
+            if (count == 1)
             {
                 line[i] = c;
-                line[++i] = '\0';
-                ++i;
             }
-            else
-                count = 0;
-            line[i] = c;
+            else if (count > 1)
+            {
+                --i;
+            }
         }
-        return i;
-    }
-
-    void cstring(char line[], int lim)
-    {
-        int i;
-        for (i = 0; i < lim; i++)
+        else     if (c == '\n')
         {
-            line[i] = 0;
-        }
-        line[lim] = EOF;
+            line[i] = c;
+            line[++i] = '\0';
+
+            return i;
+        }    
+           else
+        count = 0;
+        line[i] = c;
     }
+    return i;
+}
+
+void cstring(char line[],int lim)
+{
+    int i;
+    for ( i = 0; i < lim; i++)
+    {
+        line[i]='\0';
+    }
+    line[lim]=EOF;
+    
+}
+
