@@ -32,9 +32,26 @@ int main()
     {
         if (len > 2)
         {
+            ++count;
+            for ( i = 0; i < MAX_ROWS; i++)
+            {
+                if (i == count)
+                {
+                    for ( i = 0; i < len; i++)
+                    {
+                        massivelines[count][i] = line[i];
+                    }
                     
+                }
+                
+            }
             
-            
+        }
+        else if (len == 2)
+        {
+            for ( i = 0; i < len; i++)
+            {
+                if (line[i]!=' ' && line[i]!='\t' && line[len] == '\n')
                  ++count;
             for ( i = 0; i < MAX_ROWS; i++)
             {
@@ -47,6 +64,7 @@ int main()
                     
                 }
                 
+            }
             }
             
         }
