@@ -17,7 +17,11 @@ int main()
     char line[SYMINLINE];                    // input string 
     char StringsMassive[COLUMNS][SYMINLINE]; // two demnesional array for founded strings
 
-    for (i = 0; i < STM-1; ++i)
+    fclearStrings(StringsMassive);
+    printf("this program print five lines longer then 10 chars.\n");
+    printf("Enter a string:\n");
+
+    while ((len = f1getline(line, SYMINLINE)) > 0) // cycle work while string not equal 0
     {
         for (j = 0; j < IMAXLINE-1; j++)
         {
@@ -39,14 +43,6 @@ int main()
             ++count;
         }
     }
-    for (i = 0; i < COLUMNS; i++)
-    {
-        for (j = 0; j < SYMINLINE; j++)
-        {
-            printf("%c", StringsMassive[i][j]);
-        }
-    }
-
     putchar('\n');
     printf("Strings with more then 10 symbols:\n");
     fprint(StringsMassive);
