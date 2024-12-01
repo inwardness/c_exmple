@@ -52,7 +52,8 @@ int f1getline(char line[], int lim)
 
 void printString(char line[], int lim)
 {
-    for (size_t i = 0; i < SYMINLINE; i++)
+    int i;
+    for ( i = 0; i < lim; i++)
     {
         printf("%c", line[i]);
     }
@@ -60,7 +61,8 @@ void printString(char line[], int lim)
 
 void clearString(char line[], int lim)
 {
-    for (size_t i = 0; i < SYMINLINE; i++)
+    int i;
+    for (i = 0; i < lim; i++)
 
         line[i] = 0;
 }
@@ -68,8 +70,8 @@ void clearString(char line[], int lim)
 void revers(char line[], int lim)
 {
     char exch;
-
-    for (size_t i = 0; i < lim / 2; i++)
+    int i;
+    for ( i = 0; i < lim / 2; i++)
     {
         exch = line[i];
         line[i] = line[lim - i - 1];
