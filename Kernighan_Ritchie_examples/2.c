@@ -68,7 +68,7 @@ int main()
             }
             
         }
-        else
+        
         continue;
        
         cstring(line,MAX_COLS);
