@@ -1,95 +1,75 @@
-#define MAX_ROWS 10
-#define MAX_COLS 50
 #include <stdio.h>
+#define TABSPACE 3
+#define MAXINLINE 20
+char line[MAXINLINE];
 
-int gtstring(char line[], int lim);
-void cstring(char line[], int lim);
+int getstring(int line[],int lim);
+void clstring(int line[],int lim);
 
+int de1tab(int line[],int lim);
 int main()
 {
-    char line[MAX_COLS];
-    char massivelines[MAX_ROWS][MAX_COLS];
-
-    int len = 0;
-    int i, j;
-    int count = 0;
-
-    // Reset to zero two-dimensional array
-    for (i = 0; i < MAX_ROWS; i++)
+    extern char line[];
+    extern int getstring();
+    extern int de1tab();
+    int length = 0;
+    while ((length=(getstring(line,MAXINLINE)))!=0)
     {
-        for (j = 0; j < MAX_COLS; j++)
-        {
-            massivelines[i][j] = 0;
-        }
+        de1tab(line,MAXINLINE);
+        printf("%s",line);
     }
-
-    printf("Print string with tabs, spaces, or empty string:\n");
-    while ((len = gtstring(line, MAX_COLS)) > 0)
-    {
-        if (len > 1)
-        {
-            ++count;
-            for (j = 0; j < len; j++)
-            {
-                massivelines[count - 1][j] = line[j];
-            }
-            massivelines[count - 1][len] = '\0'; // Null-terminate the string
-        }
-        else if (len == 1)
-        {
-            cstring(line, MAX_COLS);
-        }
-    }
-
-    for (i = 0; i < count; i++)
-    {
-        printf("%s\n", massivelines[i]);
-    }
-
-    return 0;
+return 0;
 }
 
-int gtstring(char line[], int lim)
-{
-    int i, c;
-    int space_flag = 0; // Flag to track consecutive spaces
-
-    for (i = 0; i < lim - 1 && (c = getchar()) != EOF && c != '\n';)
-    {
-        if (c == '\t' || c == ' ')
-        {
-            if (!space_flag)
-            {
-                line[i++] = ' '; // Replace tab or space with a single space
-                space_flag = 1;
-            }
-        }
-        else
-        {
-            line[i++] = c;
-            space_flag = 0;
-        }
-    }
-
-    if (c == '\n')
-    {
-        line[i] = '\0'; // Null-terminate the string
-    }
-    else
-    {
-        line[i] = '\0'; // Null-terminate the string
-        while ((c = getchar()) != EOF && c != '\n'); // Clear the input buffer
-    }
-
-    return i;
-}
-
-void cstring(char line[], int lim)
+int getstring(int line[],int lim)
 {
     int i;
-    for (i = 0; i < lim; i++)
+    char c;
+    for ( i = 0; i < lim - 1 && ((c=getchar())!=0) && (c!='\n'); i++)
     {
-        line[i] = 0;
+        line[i] = c;
+        if (line[i] == '\n')
+        {
+            line[i] = c;
+            ++i;
+        }
+        line[i] = '\0';
     }
-    line[lim - 1] = '\0'; // Null-terminate the string
+
+    return i;    
+}
+
+void clstring(int line[],int lim)
+{
+    int i;
+    for ( i = 0; i < lim; i++)
+    {
+        line[i] = '\0';
+    }
+    
+}
+
+int de1tab(int line[],int length)
+{
+    int i;
+    char end = '\0';
+    extern TABSPACE;
+    int tab = TABSPACE;      
+    {
+        for ( i = 0; i < length; i++)
+        {
+            if (line[i] == '\t')
+            {
+                while (tab > 0)
+                {
+                    putchar('_');
+                }
+                tab = TABSPACE;
+            }
+            else
+                    printf("%c",line[i]);
+        }
+        
+    }
+    
 }

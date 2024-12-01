@@ -1,28 +1,25 @@
 #include <stdio.h>
 #define MAXLINE 1000
+#define TAB 8
 
 int max;
 char line[MAXLINE];
-char exchtab[MAXLINE];
-char exchline[MAXLINE];
 
 void clrlin(char line[],int lim);
 int get1line(char line[],int lim);
-/* void copy(char line[],char exchline[]);
-int exch(char exchtab[],char exchline[]); */
-
-char tab = '_';
+int tab(char line[],int len);
 
 int main()
-{
-    int len;
+{   int i;
+    int len = 0;
     extern int get1line();
-    extern void clrlin(char line[],int lim);
-    while ((len = get1line(line,MAXLINE)) > 0){
-       
-       printf("%s\n",line);
+    extern void clrlin();
+    printf("Enter a string for detab symbols:\n");
+    while ((len = get1line(line,MAXLINE)) > 0)
+    {
+       printf("%s",line);
        printf("%d\n",len);
-       clrlin(line,MAXLINE);
+       tab(line,len);
     }
     return 0;
 }
@@ -30,62 +27,58 @@ int main()
 void clrlin(char line[],int lim)
 {
     int i;
-    for ( i = 0; i < lim-1; i++){
+    for ( i = 0; i < lim; i++){
         line[i] = 0;
         }    
-    
+    line[lim] = 0;
 }
 
  int get1line(char line[],int lim)
 {
-    int count;
     int i,c;
-    for ( i = 0; i < lim-1 && ( c = getchar())!=EOF && c!='\n'; i++){
     
-    if (c == '\t' && count > 0){   
-        count = 5;
-        while (count >=0){
-        line[i] = tab;
-        i++;
-        count--;
+    for ( i = 0; i < lim - 1 && (c = getchar())!=EOF && c!='\n'; i++)
+    
+        line[i] = c;
+        if (c == '\n')
+        {
+           line[i] = c;
+           ++i;
         }
-     }
-    count = 5;
-    if (c == '\n')
-    {
-      line[i] = c;
-      ++i;    
-      line[i] = '\0';
-    }
-    else 
-    line[i] = c;
-    }
+        line[i] = '\0';
+    
   return i;  
 }
-/*
-void copy(char line[],char exchline[]){
-   
-    int i=0;
-    while ((exchline[i]=line[i])!='\0')
-    ++i;
-    
-}
 
-int exch(char exchtab[], char exchline[])
+int tab(char line[],int len)
 {
-    int i,count = 4;
-    while ((exchtab[i]=exchline[i])!='\0')
-    ++i;
-    if (exchline[i] == '\t')
-    {   
-        while (count > 1)
-        {
-            exchtab[i] = tab;
-            ++i;
-            --count;
-        }
-        count = 4;
+    int i,j = 0;
+    int tab = TAB;
+    int position = 0;
+    int spacechar = 0;
+    for ( i = 0; i < len; i++)
+    {
         
+        if(line[i] == '\t')
+        {
+            
+            spacechar = tab - (position % tab);
+            for ( j = 0; j < spacechar; j++)
+            {
+                position++;
+                putchar('.');
+            }
+        }
+        else if (line[i] == '\n')
+        {
+            position = 0;
+            putchar('\n');
+        }
+        
+        else{
+        position++;
+        printf("%c",line[i]);
+        }
     }
-    
-} */
+    return 0;
+}
