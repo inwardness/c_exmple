@@ -1,6 +1,6 @@
 #include <stdio.h>
 #define MAXLINE 1000
-#define TAB 4
+#define TAB 8
 
 int max;
 char line[MAXLINE];
@@ -61,24 +61,26 @@ int tab(char line[],int len)
         
         if(line[i] == '\t')
         {
-            
             spacechar = tab - (position % tab);
             for ( j = 0; j < spacechar; j++)
             {
                 position++;
-                putchar('.');
+                putchar('_');
             }
+        
         }
         else if (line[i] == '\n')
         {
+            ++i;
             position = 0;
             putchar('\n');
         }
         
         else
-        position++;
+        {
         printf("%c",line[i]);
         position++;
+        }
     }
     return 0;
 }
