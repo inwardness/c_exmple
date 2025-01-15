@@ -52,6 +52,7 @@ void tabsentered(char line[],char tabsline[],int max,int lim)
 {
     int i,j;
     int count = 0;
+    int spc = 0;
 
     for ( i = 0; i < lim - 1; i++)
     {
@@ -71,7 +72,7 @@ void tabsentered(char line[],char tabsline[],int max,int lim)
                 }
                 else if (line[i] != ' ' && line[i] != '\t')
                 {
-                    for ( i = line[co]; i < ; i++)
+                    for ( i = line[i]; i == ; i++)
                     {
                         /* code */
                     }
