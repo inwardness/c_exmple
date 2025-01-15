@@ -14,6 +14,7 @@ int main()
     //  scanf("%d",&tabedge);
     while ((len = get1line(line, MAXLINE)) > -1)
     {
+<<<<<<< HEAD
         //printf("%d\n", len);
         if (len > 0)
         {
@@ -21,6 +22,11 @@ int main()
         }
     }
 
+=======
+            printf("%s", line);
+     
+    }
+>>>>>>> 3b5657f (	modified:   Kernighan_Ritchie_examples/2.c)
     return 0;
 }
 
@@ -28,6 +34,7 @@ int get1line(int line[], int lim)
 {
     int c, i;
 
+<<<<<<< HEAD
     for (i = 0; i < lim && (c = getchar()) != EOF && c!='\n'; i++)
     
         line[i] = c;
@@ -38,5 +45,19 @@ int get1line(int line[], int lim)
         }
         line[i] = '\0';    
     
+=======
+    for (i = 0; i < lim - 1 && (c = getchar()) != EOF; i++)
+{
+    line[i] = c; 
+
+        if (c == '\n')
+        {
+            line[i] = c;
+            ++i;
+        }
+        
+    line[i] = '\0';    
+}    
+>>>>>>> 3b5657f (	modified:   Kernighan_Ritchie_examples/2.c)
     return i;
 }
