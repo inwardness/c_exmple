@@ -2,11 +2,11 @@
 #include<stdlib.h> 
 int main() {
    
-   char *buffer;
+   int *buffer;
    size_t bufsize = 32;
    size_t characters;
 
-   buffer =(char *)malloc(bufsize * sizeof(char));
+   buffer = (int *)malloc(bufsize * sizeof(int));
    if(buffer == NULL)
    {
       perror("Unable tp allocate buffer");
