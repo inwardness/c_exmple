@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include <stdio.h>
 
 #define MAXLINE 1000 /*максимальный размер вводимой строки*/
@@ -68,22 +69,67 @@ void copy(char to[], char from[])
         ++i;
 =======
 #include<stdio.h>
+=======
+#include <stdio.h>
+>>>>>>> 3571db4 (add)
 #define MAX 20
-#define MAXLINE 100
+#define MAXLINE 1000
 
 char line[MAXLINE];
 char newline[MAXLINE];
-int getline(char line[],int MAXLINE);
-void tabsline(char newline[],int MAXLINE);
+int get1line(char line[], int lim);
+void tabsline(char line[], char newline[], int lim, int llim);
 
-int main()
+void tabsline(char line[], char newline[], int lim, int llim)
 {
-    int len = 0;
-    while ((len = getline(line,MAXLINE)) > 0)
+    int i, j;
+    int count = 0;
+    int sps = 0;
+    for ( i = 0; i < lim -1;count++, i++)
     {
-        tabsline(line,MAXLINE);
+        while (count < llim)
+        {
+            newline[j] = line[i];       
+        }
+        ++j;
+        newline[j] = '\n';
         
     }
     
+<<<<<<< HEAD
 >>>>>>> 3b5657f (	modified:   Kernighan_Ritchie_examples/2.c)
 }
+=======
+    
+}
+
+int get1line(char line[], int lim)
+{
+    int i, c;
+
+    for (i = 0; i < lim - 1 && (c = getchar()) != EOF && c != '\n'; i++)
+
+        line[i] = c;
+    if (line[i] == '\n')
+    {
+        line[i] = c;
+        ++i;
+    }
+    line[i] = '\0';
+    return i;
+}
+
+int main()
+{
+
+    int len = 0;
+    while ((len = get1line(line, MAXLINE)) > 0)
+    {
+        tabsline(line, newline, MAXLINE, MAX);
+        // printf("%s ",line);
+        printf("%s", newline);
+    }
+
+    return 0;
+}
+>>>>>>> 3571db4 (add)
