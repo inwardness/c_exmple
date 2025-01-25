@@ -4,8 +4,6 @@
 
 int max;
 char line[MAXLINE];
-char exchtab[MAXLINE];
-char exchline[MAXLINE];
 
 int tabs(char line[],int len);
 void clrlin(char line[],int lim);
@@ -19,6 +17,7 @@ int main()
     int len;
     extern int get1line();
     extern void clrlin(char line[],int lim);
+    printf("Enter a string for detab string:\n");
     while ((len = get1line(line,MAXLINE)) > 0){
        
        printf("%s",line);
@@ -49,7 +48,7 @@ void clrlin(char line[],int lim)
             ++i;    
         }
         line[i] = '\0';
-     
+    
     return i; 
 }
 
@@ -75,6 +74,7 @@ void clrlin(char line[],int lim)
         }
         else if (line[i] == '\n')
         {
+            putchar('\n');
             position = 0;
             return 0;
         }
