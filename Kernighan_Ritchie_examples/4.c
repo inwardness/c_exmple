@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include <stdio.h>
 
 #define MAXLINE 1000 /*максимальный размер вводимой строки*/
@@ -74,26 +75,34 @@ void copy(char to[], char from[])
 >>>>>>> 3571db4 (add)
 #define MAX 20
 #define MAXLINE 1000
+=======
+/* Написать программу, печатающую символы так, чтобы строки текста не выходили правее n-й позиции. Это означает, что каждая строка, длина которой превышает n, должна печататься с переносом на следующие строки. Место переноса следует «искать» после последнего символа, отличного от символа-разделителя, расположенного левее n-ой позиции. Позаботиться о том, чтобы программа вела себя разумно в случае очень длинных строк, а так же когда до n-ой позиции не встречается ни одного символа пробела или табуляции.
+Сделать стандартными средствами С с использованием только библиотеки stdio.h
+ */
 
-char line[MAXLINE];
-char newline[MAXLINE];
-int get1line(char line[], int lim);
-void tabsline(char line[], char newline[], int lim, int llim);
+#include <stdio.h>
+#include <string.h>
+#define MAX_LINE_LENGTH 1024
+>>>>>>> 28f9728 (n)
 
-void tabsline(char line[], char newline[], int lim, int llim)
-{
-    int i, j;
+void print_wrapped_text(const char *text, int n) {
+    int length = strlen(text);
+    int current_position = 0;
+    int last_space_position = -1;
     int count = 0;
-    int sps = 0;
-    for ( i = 0; i < lim -1;count++, i++)
-    {
-        while (count < llim)
+    int stepback = 0;
+    int i = 0;
+
+    for (int i = 0; i < length; i++) {
+        current_position++;
+        count++;
+        if ((count < n) && (text[i] == ' ' || text[i] == '\t'))
         {
-            newline[j] = line[i];       
+            printf("%c",text[i]);
+            last_space_position = i;
         }
-        ++j;
-        newline[j] = '\n';
         
+<<<<<<< HEAD
     }
     
 <<<<<<< HEAD
@@ -101,34 +110,56 @@ void tabsline(char line[], char newline[], int lim, int llim)
 }
 =======
     
+=======
+        else if ((count < n) && (text[i]!=' ' || text[i]!='\t'))
+        {
+         printf("%c",text[i]);   
+        }
+        else if (count == n)
+        {
+            if(text[i] == ' ' || text[i] == '\t'){
+                putchar('\n');
+                count = 0;
+            }
+            else if (text[i]!=' ' || text[i]!='\t')
+            {
+                stepback = current_position - last_space_position;
+                while (stepback > 0)
+                {
+                    putchar('\b');
+                    i--;
+                    stepback--;
+                    
+                }
+                putchar('\n');
+                count = 0;
+                stepback = 0;
+                //last_space_position = 0;
+                
+            }
+            
+        }
+        
+        
+    }       
+>>>>>>> 28f9728 (n)
 }
 
-int get1line(char line[], int lim)
-{
-    int i, c;
+int main() {
+    char text[MAX_LINE_LENGTH];
+    int n;
 
-    for (i = 0; i < lim - 1 && (c = getchar()) != EOF && c != '\n'; i++)
+    // Запрашиваем у пользователя длину строки
+    printf("Введите максимальную длину строки (n): ");
+    scanf("%d", &n);
+    getchar(); // Чистим буфер после scanf
 
-        line[i] = c;
-    if (line[i] == '\n')
-    {
-        line[i] = c;
-        ++i;
-    }
-    line[i] = '\0';
-    return i;
-}
+    // Запрашиваем текст
+    printf("Введите текст (максимум %d символов):\n", MAX_LINE_LENGTH - 1);
+    fgets(text, MAX_LINE_LENGTH, stdin);
 
-int main()
-{
-
-    int len = 0;
-    while ((len = get1line(line, MAXLINE)) > 0)
-    {
-        tabsline(line, newline, MAXLINE, MAX);
-        // printf("%s ",line);
-        printf("%s", newline);
-    }
+    // Печатаем текст с переносами
+    print_wrapped_text(text, n);
 
     return 0;
 }
