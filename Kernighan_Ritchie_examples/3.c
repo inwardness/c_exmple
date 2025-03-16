@@ -13,7 +13,7 @@ int main()
     extern int getstring();
     extern int de1tab();
     int length = 0;
-    while ((length=(getstring(line,MAXINLINE)))!=0)
+    while ((length=(getstring(line,MAXINLINE)))>0)
     {
         de1tab(line,MAXINLINE);
         printf("%s",line);
