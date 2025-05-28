@@ -5,39 +5,42 @@
 int max;
 char line[MAXLINE];
 
-void clrlin(char line[],int lim);
-int get1line(char line[],int lim);
+void clearline(char line[], int max);
+
+int gtline(char line[],int max);
+
 int tab(char line[],int len);
 
 int main()
-{   int i;
+{   
+    int i;
     int len = 0;
-    extern int get1line();
-    extern void clrlin();
+    extern int    gtline(char line[], int max);
+    extern void clearline(char line[], int max);
     printf("Enter a string for detab symbols:\n");
-    while ((len = get1line(line,MAXLINE)) > 0)
-    {
-       printf("%s",line);
-       printf("%d\n",len);
-       tab(line,len);
-    }
-    return 0;
+    while ((len = gtline(line,MAXLINE)) > 0)
+           {
+            printf("%s",line);
+            printf("%d\n",len);
+            tab(line,len);
+           }
+        return 0;
 }
 
-void clrlin(char line[],int lim)
+void clearline(char line[],int max)
 {
     int i;
-    for ( i = 0; i < lim; i++){
+    for ( i = 0; i < max; i++){
         line[i] = 0;
         }    
-    line[lim] = 0;
+    line[max] = 0;
 }
 
- int get1line(char line[],int lim)
+int gtline(char line[],int max)
 {
     int i,c;
     
-    for ( i = 0; i < lim - 1 && (c = getchar())!=EOF && c!='\n'; i++)
+    for ( i = 0; i < max - 1 && (c = getchar())!=EOF && c!='\n'; i++)
     
         line[i] = c;
         if (c == '\n')

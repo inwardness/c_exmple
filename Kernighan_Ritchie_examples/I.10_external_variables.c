@@ -5,7 +5,7 @@ int max; /*maximum entered string*/
 char line[MAXLINE] ;/*current string*/
 char longest[MAXLINE];/*maximum length*/
 
-int get1line(void);
+int get2line(void);
 void copy(void);
 
 /*print maximum length string.sepcial ed.*/
@@ -15,7 +15,7 @@ int main ()
     extern int max;
     extern char longest[];
     max = 0;
-    while ((len = get1line())>0)
+    while ((len = get2line())>0)
         if (len > max){
         max = len;
         copy();
@@ -27,7 +27,7 @@ int main ()
 }
     
 /*getline -spec. ver.*/
-int get1line(void)
+int get2line(void)
 {
     int c,i;
     extern char line[];

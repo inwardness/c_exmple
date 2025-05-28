@@ -6,17 +6,17 @@ int max;
 char line[MAXLINE];
 
 void clrlin(char line[], int lim);
-int get1line(char line[], int lim);
+int g1line(char line[], int lim);
 int tab(char line[], int len);
 
 int main()
 {
     int i;
     int len = 0;
-    extern int get1line();
+    extern int g1line();
     extern void clrlin();
     printf("Enter a string for detab symbols:\n");
-    while ((len = get1line(line, MAXLINE)) > 0)
+    while ((len = g1line(line, MAXLINE)) > 0)
     {
         printf("%s", line);
         printf("%d\n", len);
@@ -35,7 +35,7 @@ void clrlin(char line[], int lim)
     line[lim] = 0;
 }
 
-int get1line(char line[], int lim)
+int g1line(char line[], int lim)
 {
     int i, c;
 
