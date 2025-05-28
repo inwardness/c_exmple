@@ -13,25 +13,19 @@ int main()
     char line[MAX];
     int i;
     char c;
-    for ( i = 0; i < MAX -1; i++)
-    {
+    int startV = 0;
+    int stopV = 0;
+        for ( i = 0; i < MAX -1; i++){
         line[i] = 0;
     }
     printf("entered a programs:\n");
     
-    while (c!='\0')
-    {
-        for ( i = 0; i < MAX - 1 && (c = getchar())!='\0'; i++)
-         
-            line[i] = c;
-            if (c == '\0')
-            {
-                line[i] = c;
-                ++i;
+    for ( i = 0; i < MAX - 1 && (c = getchar())!='\0'; i++){ 
+
+        line[i] = c;
             }
-            line[i] = '\0';
              
-    } 
+    
       for ( i = 0; i < MAX - 1; i++)
       {
         printf("%c",line[i]);

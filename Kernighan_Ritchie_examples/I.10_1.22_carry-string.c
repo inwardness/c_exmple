@@ -1,63 +1,72 @@
-#include <stdio.h>
+#include<stdio.h>
 #define MAXLINE 1000
-int get1line(int line[], int lim);
-int line[MAXLINE];
-int main()
-{
-    int c,i;
-    int len = 0;
-    int count = 0;
-    int tabedge = 0;
-    extern int line[];
-    extern int get1line();
-    printf("entered a length string fot tabs right edge:\n");
-    //  scanf("%d",&tabedge);
-    while ((len = get1line(line, MAXLINE)) > -1)
-    {
-<<<<<<< HEAD
-        //printf("%d\n", len);
-        if (len > 0)
-        {
-            printf("%s", line);
-        }
-    }
+#define N 8
 
-=======
-            printf("%s", line);
-     
-    }
->>>>>>> 3b5657f (	modified:   Kernighan_Ritchie_examples/2.c)
+char line[MAXLINE];
+
+void clrlin(char line[],int lim);
+int get1line(char line[],int lim);
+void fold_line(char line[], int lim);
+
+int main(){
+    extern int get1line(char line[], int lim);
+    extern void clrlin(char line[], int lim);
+    extern void fold_line(char line[], int lim);
+    int i =0;
+    int len =0;
+    printf("Enter a string for a fold line:\n");
+        while ((len = (get1line(line,MAXLINE)) )> 0)
+        {
+            fold_line(line,MAXLINE);
+        }
     return 0;
 }
 
-int get1line(int line[], int lim)
-{
-    int c, i;
+void clrlin(char line[],int lim){
+    int i;
+    for ( i = 0; i < lim; i++)
+    {
+        line[i] = 0;
+    }
+    line[lim] = '\0';
+}
 
-<<<<<<< HEAD
-    for (i = 0; i < lim && (c = getchar()) != EOF && c!='\n'; i++)
-    
+int get1line(char line[], int lim){
+    int i;
+    char c;
+    for ( i = 0; i < lim -1 && (c=getchar())!=EOF && c!='\n'; i++)
         line[i] = c;
         if (c == '\n')
         {
             line[i] = c;
-            i++;
+            ++i;   
         }
-        line[i] = '\0';    
+        line[i] = '\0';
     
-=======
-    for (i = 0; i < lim - 1 && (c = getchar()) != EOF; i++)
-{
-    line[i] = c; 
+    return i;     
+}
 
-        if (c == '\n')
+void fold_line(char line[], int lim){
+    int i;
+    int last_tabs =0;
+    
+    for ( i = 0; i < lim ; ++i)
+    {
+        if (i%N==0 && i!=0)
         {
-            line[i] = c;
-            ++i;
+            last_tabs = i;
+            while (last_tabs > i-N && line[last_tabs]!=' ' && line[last_tabs]!='\t')
+            --last_tabs;
+            if (last_tabs>i-N)
+            {
+                line[last_tabs] = '\n';
+                i = last_tabs;
+            }
+            else
+            {
+                printf("%.*s-\n",N,&line[i-N]);
+            }
         }
-        
-    line[i] = '\0';    
-}    
->>>>>>> 3b5657f (	modified:   Kernighan_Ritchie_examples/2.c)
-    return i;
+    }
+    printf("%s",line);  
 }

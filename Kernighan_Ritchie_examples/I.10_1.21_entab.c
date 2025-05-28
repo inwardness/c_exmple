@@ -1,3 +1,5 @@
+//program print empty positioin instead tab and underscore symbol
+// instead space in text with saving text formatting
 #include <stdio.h>
 #define MAXLINE 1000
 #define TAB 8
@@ -13,8 +15,8 @@ int main()
 {
     int i;
     int len = 0;
-    extern int get1line();
-    extern void clrlin();
+    extern int get1line(char line[], int lim);
+    extern void clrlin(char line[], int lim);
     printf("Enter a string for detab symbols:\n");
     while ((len = get1line(line, MAXLINE)) > 0)
     {
@@ -32,12 +34,13 @@ void clrlin(char line[], int lim)
     {
         line[i] = 0;
     }
-    line[lim] = 0;
+    line[lim] = '\0';
 }
 
 int get1line(char line[], int lim)
 {
-    int i, c;
+    int i;
+    char c;
 
     for (i = 0; i < lim - 1 && (c = getchar()) != EOF && c != '\n'; i++)
 
