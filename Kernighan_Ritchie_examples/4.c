@@ -7,40 +7,48 @@
 
 #define MAX_LINE_LENGTH 1024
 
-void print_wrapped_text(const char *text, int n) {
+void print_wrapped_text(const char *text, int n)
+{
     int length = strlen(text);
     int current_position = 0;
     int last_space_position = -1;
+    int count = 0;
 
-    for (int i = 0; i < length; i++) {
-        // Если текущий символ - пробел или табуляция, запоминаем его позицию
-        if (text[i] == ' ' || text[i] == '\t') {
-            last_space_position = i;
-        }
-
-        // Печатаем символ
-        putchar(text[i]);
+    for (int i = 0; i < length; i++)
+    {
         current_position++;
-
-        // Если достигли n-й позиции
-        if (current_position >= n) {
-            // Если есть пробел для переноса, переносим строку
-            if (last_space_position != -1) {
-                putchar('\n');
-                current_position = i - last_space_position; // Обновляем текущую позицию
-                last_space_position = -1; // Сбрасываем позицию пробела
-            } else {
-                // Если пробела нет, переносим строку на n-й позиции
-                putchar('\n');
-                current_position = 0; // Сбрасываем текущую позицию
-                last_space_position = -1; // Сбрасываем позицию пробела
-                i--; // Повторяем текущий символ
+        if ((current_position < n) && (text[i] != ' ' || text[i] != '\t'))
+        {
+            printf("%c", text[i]);
+        }
+        else
+        {
+            if (current_position < n && (text[i] == ' ' || text[i] == '\t'))
+            {
+                last_space_position = i;
+                printf("%c", text[i]);
+            }
+            else if (current_position > n && (text[i] != ' ' || text[i] != '\t'))
+            {
+                count = current_position - last_space_position;
+                do {
+                    putchar('\b');
+                    i--;
+                    current_position--;
+                    }
+                 while (count > 0);
+                printf("\n");
+            }
+            else if (current_position > n && (text[i] == ' ' || text[i] == '\t'))
+            {
+                printf("\n");
             }
         }
     }
 }
 
-int main() {
+int main()
+{
     char text[MAX_LINE_LENGTH];
     int n;
 
