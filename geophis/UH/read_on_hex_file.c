@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdint.h>
 #include <string.h>
-#include <time.h>
 
 #pragma pack(push, 1)
 typedef struct {
@@ -11,15 +10,14 @@ typedef struct {
     uint16_t r_cap;
     uint8_t ccf_max;
     uint8_t file_version : 6;
-    uint8_t : 2; // Выравнивание оставшихся 2 бит
     uint8_t Imax;
     uint8_t Uin;
-    uint8_t t0;  // День
-    uint8_t t1;  // Месяц
-    uint8_t t2;  // Год (год - 2000)
-    uint8_t t3;  // Часы
-    uint8_t t4;  // Минуты
-    uint8_t t5;  // Секунды
+    uint8_t t0;
+    uint8_t t1;
+    uint8_t t2;
+    uint8_t t3;
+    uint8_t t4;
+    uint8_t t5;
     uint32_t microsec;
     uint32_t serial_number;
     uint32_t shot_point;
@@ -57,45 +55,14 @@ typedef struct {
 } Record;
 #pragma pack(pop)
 
-void bytes_to_datetime(uint8_t t0, uint8_t t1, uint8_t t2,
-                      uint8_t t3, uint8_t t4, uint8_t t5,
-                      char* output) {
-    struct tm timeinfo = {0};
-    timeinfo.tm_mday = t0;
-    timeinfo.tm_mon = t1 - 1;
-    timeinfo.tm_year = 100 + t2; // 2000 + (t2)
-    timeinfo.tm_hour = t3;
-    timeinfo.tm_min = t4;
-    timeinfo.tm_sec = t5;
-    timeinfo.tm_isdst = -1;
-    
-    strftime(output, 20, "%Y-%m-%d %H:%M:%S", &timeinfo);
-}
-
 void write_csv_header(FILE *csv) {
-    fprintf(csv, "DateTime,UHT,CTB,R_UHT,R_CAP,CCF,Ver,Imax,Uin,"
-                 "Microsec,Serial,ShotPt,SP_step,Line,FileCnt,Mode,"
-                 "Language,Compatibility,GphType,ShotByPPS,DetType,"
-                 "HighVoltage,CCFThresh,PrivateCode,FireDelay,"
-                 "RadioDelay,RadioAmpl,CTB_max,UHT_min,UHT_mode,"
-                 "UHT_test,TimeZone,TimeSlot,ShooterAmount,"
-                 "r0_uh,r0_cap,adc_null,GGA,DetInfo,DetNumber,"
-                 "Shift,Noise,Data0,Data1,Data2\n");
+    fprintf(csv, "UHT,CTB,R_UHT,R_CAP,CCF,Ver,Imax,Uin,t0,t1,t2,t3,t4,t5,Microsec,Serial,ShotPt,Line,");
+    fprintf(csv, "Data0,Data1,Data2,...,Data1999\n");  // Сокращённый заголовок для данных
 }
 
 void write_record_to_csv(FILE *csv, const Record *rec) {
-    char datetime[20];
-    bytes_to_datetime(rec->t0, rec->t1, rec->t2, rec->t3, rec->t4, rec->t5, datetime);
-    
-    fprintf(csv, "\"%s\",%.1f,%.1f,%.1f,%.1f,%d,%d,%d,%d,"
-                 "%u,%u,%d,%d,%u,%u,"
-                 "%hu,%hu,%hu,%hu,%hu,"
-                 "%hu,%hu,%hu,%hu,%hu,"
-                 "%hu,%hu,%hu,%hu,%hu,"
-                 "%hu,%hu,%hu,%hu,"
-                 "%hd,%hd,%hd,\"%.128s\",%hu,%u,"
-                 "%hu,%hu,%hd,%hd,%hd\n",
-            datetime,
+    // Основные поля
+    fprintf(csv, "%.1f,%.1f,%.1f,%.1f,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%u,%u,%d,%u,",
             rec->uht / 10.0f,
             rec->ctb / 10.0f,
             rec->r_uht / 10.0f,
@@ -104,42 +71,22 @@ void write_record_to_csv(FILE *csv, const Record *rec) {
             rec->file_version,
             rec->Imax,
             rec->Uin,
+            rec->t0,
+            rec->t1,
+            rec->t2,
+            rec->t3,
+            rec->t4,
+            rec->t5,
             rec->microsec,
             rec->serial_number,
             rec->shot_point,
-            rec->SP_step,
-            rec->line_number,
-            rec->file_cnt,
-            rec->mode,
-            rec->language,
-            rec->compatibility,
-            rec->gph_type,
-            rec->shot_by_PPS,
-            rec->det_type,
-            rec->high_voltage,
-            rec->ccf_threshold,
-            rec->private_code,
-            rec->fire_delay,
-            rec->radio_delay,
-            rec->radio_ampl,
-            rec->CTB_max,
-            rec->UHT_min,
-            rec->UHT_mode,
-            rec->UHT_test,
-            rec->time_zone,
-            rec->time_slot,
-            rec->shooter_amount,
-            rec->r0_uh,
-            rec->r0_cap,
-            rec->adc_null,
-            rec->gga,
-            rec->det_info,
-            rec->det_number,
-            rec->shift,
-            rec->noise,
-            rec->data[0],
-            rec->data[1],
-            rec->data[2]);
+            rec->line_number);
+
+    // Первые 3 значения из data для примера
+    for (int i = 0; i < 3; i++) {
+        fprintf(csv, "%d,", rec->data[i]);
+    }
+    fprintf(csv, "...\n");  // Пропускаем остальные 1997 значений для краткости
 }
 
 int main() {
@@ -159,8 +106,7 @@ int main() {
         return 1;
     }
 
-    // Записываем UTF-8 BOM и заголовок
-    fputs("\xEF\xBB\xBF", output); // BOM для корректного отображения в Excel
+    // Записываем заголовок CSV
     write_csv_header(output);
 
     Record rec;
