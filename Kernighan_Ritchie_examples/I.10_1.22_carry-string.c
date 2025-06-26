@@ -48,25 +48,18 @@ int get1line(char line[], int lim){
 
 void fold_line(char line[], int lim){
     int i;
-    int last_tabs =0;
+    int last_position =0;
+    int back_position =0;
     
-    for ( i = 0; i < lim ; ++i)
-    {
-        if (i%N==0 && i!=0)
-        {
-            last_tabs = i;
-            while (last_tabs > i-N && line[last_tabs]!=' ' && line[last_tabs]!='\t')
-            --last_tabs;
-            if (last_tabs>i-N)
-            {
-                line[last_tabs] = '\n';
-                i = last_tabs;
+    for ( i = 0; i < lim; ++i){
+        if (i%N==0){
+            if (line[i]==' ' && line[i] == '\t'){
+               putchar('+');
+               }
+            else{
+                putchar('-');
             }
-            else
-            {
-                printf("%.*s-\n",N,&line[i-N]);
-            }
-        }
+        } 
     }
-    printf("%s",line);  
+    printf("%s",line);
 }
