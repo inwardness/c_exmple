@@ -2,22 +2,20 @@
 
 #define MAXLINE 70
 
-int max;                                    /* max length string*/
-char line[MAXLINE];                         /*current string*/
-char longest[MAXLINE];                      /*maximal long string*/
+int max; /* max length string*/
+char line[MAXLINE];
+char longest[MAXLINE];
 
-int get2line(void);
+int get1line(void);
 void copy(void);
-                                            /*print string max length*/
+/*print string max length*/
 int main()
 {
     int len;
     extern int max;
     extern char longest[];
     max = 0;
-    printf("printing strings different longest\n");
-    printf("for exit enter Ctrl+d\n");
-    while ((len = get2line()) > 0)
+    while ((len = get1line()) > 0)
         if (len > max)
         {
             max = len;
@@ -29,7 +27,7 @@ int main()
 }
 
 /*getline:special version*/
-int get2line(void)
+int get1line(void)
 {
     int c, i;
     extern char line[];
