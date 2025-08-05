@@ -1,0 +1,12 @@
+#ifndef R_VERSION_H
+#define R_VERSION_H 1
+#define R2_VERSION_COMMIT 33172
+#define R2_VERSION "5.9.9"
+#define R2_VERSION_MAJOR 5
+#define R2_VERSION_MINOR 9
+#define R2_VERSION_PATCH 9
+#define R2_VERSION_NUMBER 50909
+#define R2_GITTAP "5.9.8-248-g473ad86a2e"
+#define R2_GITTIP "473ad86a2e734bdca507c3a6b4ce095de47db130"
+#define R2_BIRTH "2025-01-12__19:58:27"
+#endif
