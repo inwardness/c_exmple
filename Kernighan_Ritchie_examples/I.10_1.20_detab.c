@@ -7,33 +7,14 @@
 int max;
 char line[MAXLINE];
 
-<<<<<<< HEAD
-void clearline(char line[], int max);
-
-int gtline(char line[],int max);
-
-=======
 void clrlin(char line[],int lim);
 int f1getline(char line[],int lim);
->>>>>>> 3b72dcb7c65d65d06b3775c1191b9c54b33c9903
 int tab(char line[],int len);
 
 int main()
 {   
     int i;
     int len = 0;
-<<<<<<< HEAD
-    extern int    gtline(char line[], int max);
-    extern void clearline(char line[], int max);
-    printf("Enter a string for detab symbols:\n");
-    while ((len = gtline(line,MAXLINE)) > 0)
-           {
-            printf("%s",line);
-            printf("%d\n",len);
-            tab(line,len);
-           }
-        return 0;
-=======
     extern int f1getline(char line[], int lim);
     extern void clrlin(char line[],int lim);
     printf("Enter a string for detab symbols:\n");
@@ -44,7 +25,6 @@ int main()
        tab(line,len);
     }
     return 0;
->>>>>>> 3b72dcb7c65d65d06b3775c1191b9c54b33c9903
 }
 
 void clearline(char line[],int max)
@@ -56,11 +36,7 @@ void clearline(char line[],int max)
     line[max] = 0;
 }
 
-<<<<<<< HEAD
-int gtline(char line[],int max)
-=======
  int f1getline(char line[],int lim)
->>>>>>> 3b72dcb7c65d65d06b3775c1191b9c54b33c9903
 {
     int i,c;
     
