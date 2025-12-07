@@ -20,7 +20,7 @@ int main() {
 
 int get1line(char line[], int maxline) {
     int i, c;
-    for (i = 0; i < maxline && (c = getchar()) != '\0' && c!='\n'; ++i){
+    for (i = 0; i < maxline - 1 && (c = getchar()) != '\0' && c!='\n'; ++i){
         line[i] = c;
     }
         if (c == '\n'){
