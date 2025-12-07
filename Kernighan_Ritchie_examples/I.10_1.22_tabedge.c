@@ -1,7 +1,9 @@
 #include <stdio.h>
 #define MAXLINE 1000
 
-int getline(char line[], int lim);
+int get1line(char line[], int lim);
+void cstring(char line[], int lim);
+void fold1tab(char line[], int lim);
 
 int main()
 {
