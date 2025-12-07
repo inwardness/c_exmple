@@ -59,6 +59,7 @@
             ],
             "group": "build",
             "detail": "compiler: C:\\MinGW\\bin\\gcc.exe"
+<<<<<<< HEAD
         },
         {
             "type": "cppbuild",
@@ -179,6 +180,8 @@
             ],
             "group": "build",
             "detail": "compiler: C:\\msys64\\mingw64\\bin\\gcc.exe"
+=======
+>>>>>>> 37e817b59ae8d7c50b51859da7a0c5046a73fb7f
         }
     ],
     "version": "2.0.0"

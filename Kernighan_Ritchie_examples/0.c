@@ -17,7 +17,11 @@ int get_line(char s[]) {
   int c, i = 0;
   char previous = 'A'; /* some default value */
   /* copy each character into the corresponding `s`'s slot */
+<<<<<<< HEAD
   for (i = 0; i<MAX && ((c = getchar()) != EOF) && (c != '\n'); ++i) {
+=======
+  for (i; i<MAX && ((c = getchar()) != EOF) && (c != '\n'); ++i) {
+>>>>>>> 37e817b59ae8d7c50b51859da7a0c5046a73fb7f
     /* do not add repeating blanks and tabs */
     if ((previous == ' ' || previous == '\t') && (c == ' ' || c == '\t')) {
       --i;

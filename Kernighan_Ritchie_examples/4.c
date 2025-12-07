@@ -7,6 +7,7 @@
 
 #define MAX_LINE_LENGTH 1024
 
+<<<<<<< HEAD
 void print_wrapped_text(const char *text, int n)
 {
     int length = strlen(text);
@@ -42,13 +43,47 @@ void print_wrapped_text(const char *text, int n)
             else if (current_position > n && (text[i] == ' ' || text[i] == '\t'))
             {
                 printf("\n");
+=======
+void print_wrapped_text(const char *text, int n) {
+    int length = strlen(text);
+    int current_position = 0;
+    int last_space_position = -1;
+
+    for (int i = 0; i < length; i++) {
+        // Если текущий символ - пробел или табуляция, запоминаем его позицию
+        if (text[i] == ' ' || text[i] == '\t') {
+            last_space_position = i;
+        }
+
+        // Печатаем символ
+        putchar(text[i]);
+        current_position++;
+
+        // Если достигли n-й позиции
+        if (current_position >= n) {
+            // Если есть пробел для переноса, переносим строку
+            if (last_space_position != -1) {
+                putchar('\n');
+                current_position = i - last_space_position; // Обновляем текущую позицию
+                last_space_position = -1; // Сбрасываем позицию пробела
+            } else {
+                // Если пробела нет, переносим строку на n-й позиции
+                putchar('\n');
+                current_position = 0; // Сбрасываем текущую позицию
+                last_space_position = -1; // Сбрасываем позицию пробела
+                i--; // Повторяем текущий символ
+>>>>>>> 37e817b59ae8d7c50b51859da7a0c5046a73fb7f
             }
         }
     }
 }
 
+<<<<<<< HEAD
 int main()
 {
+=======
+int main() {
+>>>>>>> 37e817b59ae8d7c50b51859da7a0c5046a73fb7f
     char text[MAX_LINE_LENGTH];
     int n;
 
