@@ -33,40 +33,51 @@ int get1line(char line[], int lim)
 void endtab(char line[], int lim)
 {
     int i;
+    int pos;
     int position = 0;
     int space_count = 0;
     int needForTabspcs = 0;
-    for (i = 0; i < lim && line[i] != '\0'; i++){
-        if (line[i] == ' '){
+    for (i = 0; i < lim && line[i] != '\0'; i++)
+    {
+        if (line[i] == ' ')
+        {
             space_count++;
             position++;
         }
-        else{
-            while (space_count > 0){
-                    position = position - space_count;
-                    needForTabspcs = TAB - (position%TAB);
-                    if (needForTabspcs > 1 && needForTabspcs <=space_count)
-                    {
-                        putchar('\t');
-                        space_count = space_count - needForTabspcs;
-                        position = position + needForTabspcs;
-                    }
-                    else
-                    {
-                        while (space_count > 0)
+        else
+        {
+
+            if (space_count > 0)
+              {
+                position = position - space_count;
+                while (space_count > 0)
+                {
+                    
+                    needForTabspcs = TAB - (position % TAB);
+                    
+                       if (needForTabspcs > 1 && needForTabspcs <= space_count)
                         {
+                           putchar('\t');
+                           position = position + needForTabspcs;
+                           space_count = space_count - needForTabspcs;
+                        }
+                        else
+                        {
+                            while (space_count > 0)
+                            {                           
                             putchar('_');
                             space_count--;
                             position++;
+                            }
                         }
                         
-                    }
+                        
+                }
             }
-            printf("%c",line[i]);
-            position++;
-            }
+            printf("%c", line[i]);
+        position++;
         }
-    
+    }
 }
 
 int main()
@@ -81,5 +92,5 @@ int main()
         endtab(line, MAXLINE);
         putchar('\n');
         clear(line, MAXLINE);
-      }
+    }
 }
