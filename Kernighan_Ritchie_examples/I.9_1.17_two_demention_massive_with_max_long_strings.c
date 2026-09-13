@@ -7,13 +7,13 @@
 
 int f1getline(char line[], int lim);                         // function to get length cerrent length
 void copy(char from[], char to[]);                           // function of copy string do two demension arrays
-void fclearStrings(char StringsMassive[SYMINLINE]); // function in start of program for clear two demensional array
+void fclearStrings(char StringsMassive[COLUMNS][SYMINLINE]);          // function in start of program for clear two demensional array
 void fprint(char StringsMassive[COLUMNS][SYMINLINE]);        // function for print two demenstional array
 
 int main()
 {
-    int len, i, j;                          // length of input string and elements of array
-    int count = 0;                          // counter  not writen string
+    int len, i, j;                           // length of input string and elements of array
+    int count = 0;                           // counter  not writen string
     char line[SYMINLINE];                    // input string 
     char StringsMassive[COLUMNS][SYMINLINE]; // two demnesional array for founded strings
 
@@ -32,7 +32,7 @@ int main()
             printf("\r");
     
     }
-    while ((len = fgetline(line, IMAXLINE)) > 0)
+    while ((len = f1getline(line, IMAXLINE)) > 0)
     {
         if (len > LIMIT)
         {

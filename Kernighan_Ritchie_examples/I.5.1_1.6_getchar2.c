@@ -8,8 +8,8 @@ int main()
    //putchar(c);
     c = getchar();
     if(c != EOF)
-    printf("%d",c = 0);
+    printf("%d\n",c = 0);//if we exit by enter - get 0
     else
-    printf("%d",c = 1);
+    printf("%d\n",c = 1);//if exit by EOF - get 1
     
 }

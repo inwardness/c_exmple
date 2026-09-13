@@ -8,9 +8,8 @@ int main()
 	while ((c = getchar()) != EOF)
 	{
 		putchar(c);
-		
-		
+			
 	}
-	
+	printf("Символ: %c | Десятичный: %d | Hex: %x\n", c, c, c);
 	return c;
 }
